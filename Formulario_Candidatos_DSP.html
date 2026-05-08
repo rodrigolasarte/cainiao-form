@@ -996,7 +996,7 @@ function irGracias(p) {
 }
 
 function enviar() {
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmbyvg4dtRBEMoTIdBpqp-U6sm8AJR-qGCubcteDqavyh2L9pX5uZmvl8tUb1KZXCGaQ/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLXnhZJQpadsph2rrTt9w3L8u4jTKOexY6O65foZ8TCqjzCUg-JfUI6e-ioLuRUHRG/exec";
 
   const payload = {
     empresa:   document.getElementById("f-empresa").value,
@@ -1013,6 +1013,8 @@ function enviar() {
 
   fetch(SCRIPT_URL, {
     method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
     body: JSON.stringify(payload)
   })
   .then(() => irGracias(perfil))

@@ -7,461 +7,123 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --bg: #F4F6FB;
-  --white: #FFFFFF;
-  --text: #0F1117;
-  --muted: #7B8297;
-  --light: #E8EBF4;
-  --border: #DDE1EE;
-  --blue: #1F4BE8;
-  --blue-dark: #1438BE;
-  --blue-bg: #EEF2FF;
-  --blue-border: #C7D3FC;
-  --teal: #0891B2;
-  --teal-bg: #ECFAFF;
-  --green: #059669;
-  --green-bg: #ECFDF5;
-  --green-border: #A7F3D0;
-  --amber: #D97706;
-  --amber-bg: #FFFBEB;
-  --red: #DC2626;
-  --shadow: 0 2px 12px rgba(15,17,35,0.07);
+  --bg: #F4F6FB; --white: #FFFFFF; --text: #0F1117; --muted: #7B8297;
+  --light: #E8EBF4; --border: #DDE1EE; --blue: #1F4BE8; --blue-dark: #1438BE;
+  --blue-bg: #EEF2FF; --blue-border: #C7D3FC; --teal: #0891B2; --teal-bg: #ECFAFF;
+  --green: #059669; --green-bg: #ECFDF5; --green-border: #A7F3D0;
+  --amber: #D97706; --amber-bg: #FFFBEB; --red: #DC2626; --shadow: 0 2px 12px rgba(15,17,35,0.07);
 }
-
 html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-serif; min-height: 100vh; }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Figtree', sans-serif;
-  min-height: 100vh;
-}
-
-/* ── HERO ── */
 .hero {
   background: linear-gradient(135deg, #0A1628 0%, #0F2460 60%, #1238A8 100%);
-  padding: 32px 20px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  padding: 32px 20px 40px; text-align: center; position: relative; overflow: hidden;
 }
 .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 .hero-content { position: relative; z-index: 1; }
-.hero-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-.logo-cainiao {
-  background: var(--blue);
-  color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding: 6px 12px;
-  border-radius: 6px;
-}
-.logo-ecos {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
-}
+.hero-logos { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 24px; }
+.logo-cainiao { background: var(--blue); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; padding: 6px 12px; border-radius: 6px; }
+.logo-ecos { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); }
 .logo-sep { color: rgba(255,255,255,0.2); font-size: 16px; }
-
-.hero-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 99px;
-  padding: 6px 16px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 16px;
-}
-.hero-pill-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #4ADE80;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-.hero h1 {
-  font-size: clamp(24px, 5vw, 34px);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
+.hero-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 99px; padding: 6px 16px; font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+.hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 10px; }
 .hero h1 span { color: #60A5FA; }
-.hero p {
-  font-size: 15px;
-  color: rgba(255,255,255,0.55);
-  max-width: 400px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
+.hero p { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 400px; margin: 0 auto; line-height: 1.6; }
 
-/* ── PROGRESS ── */
-.progress-wrap {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-}
-.progress-inner {
-  max-width: 560px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.progress-bar {
-  flex: 1;
-  height: 4px;
-  background: var(--light);
-  border-radius: 99px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: var(--blue);
-  border-radius: 99px;
-  transition: width 0.4s ease;
-}
-.progress-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  white-space: nowrap;
-}
+.progress-wrap { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 20px; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 8px rgba(0,0,0,0.05); }
+.progress-inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+.progress-bar { flex: 1; height: 4px; background: var(--light); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.4s ease; }
+.progress-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
 
-/* ── MAIN ── */
-.main {
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 28px 16px 80px;
-}
-
-/* ── SCREEN ── */
+.main { max-width: 560px; margin: 0 auto; padding: 28px 16px 80px; }
 .screen { display: none; }
-.screen.on {
-  display: block;
-  animation: fadeUp 0.28s ease;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+.screen.on { display: block; animation: fadeUp 0.28s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ── QUESTION BLOCK ── */
-.q-step {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--blue);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-.q-title {
-  font-size: clamp(18px, 4vw, 22px);
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-.q-sub {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
+.q-step { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--blue); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
+.q-title { font-size: clamp(18px, 4vw, 22px); font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+.q-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
 
-/* ── OPTIONS ── */
 .opts { display: flex; flex-direction: column; gap: 10px; }
-.opt {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 16px 18px;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: left;
-  width: 100%;
-  box-shadow: var(--shadow);
-}
-.opt:hover {
-  border-color: var(--blue);
-  background: var(--blue-bg);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(31,75,232,0.1);
-}
-.opt.sel {
-  border-color: var(--blue);
-  background: var(--blue-bg);
-}
-.opt-icon {
-  font-size: 22px;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
+.opt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: var(--white); border: 1.5px solid var(--border); border-radius: 14px; cursor: pointer; transition: all 0.15s; text-align: left; width: 100%; box-shadow: var(--shadow); }
+.opt:hover { border-color: var(--blue); background: var(--blue-bg); transform: translateY(-1px); }
+.opt.sel { border-color: var(--blue); background: var(--blue-bg); }
+.opt-icon { font-size: 22px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
 .opt-body { flex: 1; }
-.opt-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 3px;
-  line-height: 1.3;
-}
-.opt-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.opt-radio {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-  margin-top: 2px;
-  transition: all 0.12s;
-  display: flex; align-items: center; justify-content: center;
-}
-.opt.sel .opt-radio {
-  border-color: var(--blue);
-  background: var(--blue);
-}
-.opt.sel .opt-radio::after {
-  content: '';
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #fff;
-}
+.opt-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; line-height: 1.3; }
+.opt-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.opt-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; margin-top: 2px; transition: all 0.12s; display: flex; align-items: center; justify-content: center; }
+.opt.sel .opt-radio { border-color: var(--blue); background: var(--blue); }
+.opt.sel .opt-radio::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
 
-/* ── FORM FIELDS ── */
-.form-section {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 22px 20px;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow);
-}
-.form-section-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.form-section-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
+.form-section { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.form-section-title { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.form-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .field { margin-bottom: 14px; }
 .field:last-child { margin-bottom: 0; }
-.field label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
+.field label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
 .field label .req { color: var(--red); margin-left: 2px; }
+.field label .opt-tag { color: var(--muted); font-weight: 400; margin-left: 4px; font-size: 11px; }
 .field input, .field select, .field textarea {
-  width: 100%;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-family: 'Figtree', sans-serif;
-  font-size: 15px;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.15s, background 0.15s;
-  -webkit-appearance: none;
+  width: 100%; background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; font-family: 'Figtree', sans-serif; font-size: 15px; color: var(--text);
+  outline: none; transition: border-color 0.15s, background 0.15s; -webkit-appearance: none;
 }
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--blue);
-  background: var(--white);
-}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue); background: var(--white); }
 .field select { cursor: pointer; }
 .field select option { background: #fff; }
 .field textarea { resize: vertical; min-height: 80px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 400px) { .field-row { grid-template-columns: 1fr; } }
 
-/* ── BUTTONS ── */
-.btn-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 24px;
-}
-.btn {
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-family: 'Figtree', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  transition: all 0.15s;
-}
-.btn-primary {
-  background: var(--blue);
-  color: #fff;
-  flex: 1;
-  box-shadow: 0 4px 14px rgba(31,75,232,0.25);
-}
+.cif-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.cif-valid { color: var(--green); font-size: 11px; margin-top: 4px; display: none; }
+.cif-invalid { color: var(--red); font-size: 11px; margin-top: 4px; display: none; }
+
+.btn-row { display: flex; gap: 10px; margin-top: 24px; }
+.btn { padding: 14px 22px; border-radius: 12px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; }
+.btn-primary { background: var(--blue); color: #fff; flex: 1; box-shadow: 0 4px 14px rgba(31,75,232,0.25); }
 .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
-.btn-ghost {
-  background: var(--white);
-  color: var(--muted);
-  border: 1.5px solid var(--border);
-  padding: 14px 18px;
-}
+.btn-ghost { background: var(--white); color: var(--muted); border: 1.5px solid var(--border); padding: 14px 18px; }
 .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-/* ── THANK YOU / RESULT ── */
-.thankyou {
-  text-align: center;
-  padding: 32px 20px;
-}
-.ty-icon {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px;
-  margin: 0 auto 20px;
-}
-.ty-icon.dsp20  { background: var(--blue-bg); }
-.ty-icon.div    { background: var(--teal-bg); }
+.thankyou { text-align: center; padding: 32px 20px; }
+.ty-icon { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 20px; }
+.ty-icon.dsp20 { background: var(--blue-bg); }
+.ty-icon.div { background: var(--teal-bg); }
 .ty-icon.backup { background: var(--amber-bg); }
-.ty-icon.pudo   { background: var(--green-bg); }
-.ty-icon.revisar{ background: var(--amber-bg); }
-
-.ty-title {
-  font-size: clamp(20px, 4vw, 26px);
-  font-weight: 800;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-.ty-sub {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 420px;
-  margin: 0 auto 28px;
-}
-
-.steps-box {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px;
-  text-align: left;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow);
-}
-.steps-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.step-item {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-  align-items: flex-start;
-}
+.ty-icon.pudo { background: var(--green-bg); }
+.ty-title { font-size: clamp(20px, 4vw, 26px); font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+.ty-sub { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 420px; margin: 0 auto 28px; }
+.steps-box { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: left; margin-bottom: 20px; box-shadow: var(--shadow); }
+.steps-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
+.step-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
 .step-item:last-child { margin-bottom: 0; }
-.step-num {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--blue);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
+.step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
 .step-text { font-size: 14px; line-height: 1.5; color: var(--text); }
-.step-text strong { font-weight: 700; }
-
-.profile-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 99px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.chip-dsp20  { background: var(--blue-bg);  color: var(--blue);  border: 1px solid var(--blue-border); }
-.chip-div    { background: var(--teal-bg);  color: var(--teal);  border: 1px solid #BAE8F5; }
+.profile-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
+.chip-dsp20 { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+.chip-div { background: var(--teal-bg); color: var(--teal); border: 1px solid #BAE8F5; }
 .chip-backup { background: var(--amber-bg); color: var(--amber); border: 1px solid #FDE68A; }
-.chip-pudo   { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.chip-pudo { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
 
-/* ── TRUST BAR ── */
-.trust {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px 16px;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  color: var(--muted);
-}
+.trust { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; padding: 20px 16px; }
+.trust-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
 .trust-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
     <div class="hero-logos">
@@ -469,35 +131,26 @@ body {
       <div class="logo-sep">×</div>
       <div class="logo-ecos">Ecoscooting</div>
     </div>
-    <div class="hero-pill">
-      <div class="hero-pill-dot"></div>
-      Red activa en España — Plazas disponibles
-    </div>
+    <div class="hero-pill"><div class="hero-pill-dot"></div>Red activa en España — Plazas disponibles</div>
     <h1>Únete a la red de reparto<br><span>más ambiciosa de España</span></h1>
     <p>Cuéntanos sobre tu operación y te diremos en qué programa encajas mejor.</p>
   </div>
 </div>
 
-<!-- PROGRESS BAR -->
 <div class="progress-wrap">
   <div class="progress-inner">
-    <div class="progress-bar">
-      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
     <div class="progress-label" id="prog-label">Paso 1 de 4</div>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- ══════════════════════════════
-       PASO 1 — TIPO DE ACTIVIDAD
-  ══════════════════════════════ -->
+  <!-- PASO 1 — TIPO -->
   <div class="screen on" id="p1">
     <div class="q-step">Paso 1 de 4</div>
     <div class="q-title">¿Cuál describe mejor tu situación actual?</div>
     <div class="q-sub">No te preocupes si no encajas exactamente — elige la más cercana.</div>
-
     <div class="opts" id="og1">
       <button class="opt" onclick="sel1('empresa','og1',this)">
         <div class="opt-icon">🏢</div>
@@ -511,7 +164,7 @@ body {
         <div class="opt-icon">🚀</div>
         <div class="opt-body">
           <div class="opt-title">Autónomo o empresa nueva — quiero crecer</div>
-          <div class="opt-desc">Tengo vehículo(s) y experiencia en reparto, o una pequeña operación que quiero escalar con vosotros</div>
+          <div class="opt-desc">Tengo vehículo(s) y experiencia en reparto, o una pequeña operación que quiero escalar</div>
         </div>
         <div class="opt-radio"></div>
       </button>
@@ -519,7 +172,7 @@ body {
         <div class="opt-icon">🏪</div>
         <div class="opt-body">
           <div class="opt-title">Tengo un negocio o tienda y también vehículo</div>
-          <div class="opt-desc">Mi negocio principal es otro, pero tengo furgoneta o coche y me interesa repartir como actividad adicional</div>
+          <div class="opt-desc">Mi actividad principal es otra, pero tengo furgoneta y me interesa repartir como actividad adicional</div>
         </div>
         <div class="opt-radio"></div>
       </button>
@@ -532,21 +185,18 @@ body {
         <div class="opt-radio"></div>
       </button>
     </div>
-
     <div class="btn-row">
       <button class="btn btn-primary" id="btn1" disabled onclick="ir('p2')">Siguiente →</button>
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       PASO 2 — FLOTA Y VOLUMEN
-  ══════════════════════════════ -->
+  <!-- PASO 2 — FLOTA Y VOLUMEN -->
   <div class="screen" id="p2">
     <div class="q-step">Paso 2 de 4</div>
-    <div class="q-title">¿Cuántos vehículos tienes y cuánto puedes repartir?</div>
+    <div class="q-title">Flota y capacidad de reparto</div>
     <div class="q-sub">Si todavía no repartes, dinos cuánto crees que podrías hacer con nuestro volumen.</div>
 
-    <div class="q-title" style="font-size:15px; margin-bottom:10px; color:var(--muted); font-weight:600;">Vehículos disponibles</div>
+    <div style="font-size:15px;font-weight:600;color:var(--muted);margin-bottom:10px;">Vehículos disponibles</div>
     <div class="opts" id="og-flota" style="margin-bottom:22px;">
       <button class="opt" onclick="selFlota('uno','og-flota',this)">
         <div class="opt-body"><div class="opt-title">1 vehículo</div><div class="opt-desc">Moto, coche o furgoneta</div></div>
@@ -562,25 +212,25 @@ body {
       </button>
     </div>
 
-    <div class="q-title" style="font-size:15px; margin-bottom:10px; color:var(--muted); font-weight:600;">Capacidad de reparto (paquetes al día)</div>
+    <div style="font-size:15px;font-weight:600;color:var(--muted);margin-bottom:10px;">Capacidad diaria (paquetes)</div>
     <div class="opts" id="og-vol">
       <button class="opt" onclick="selVol('menos200','og-vol',this)">
-        <div class="opt-body"><div class="opt-title">Menos de 200 paquetes/día</div><div class="opt-desc">Operación pequeña o quiero empezar desde cero</div></div>
+        <div class="opt-body"><div class="opt-title">Menos de 200 paq/día</div><div class="opt-desc">Operación pequeña o inicio desde cero</div></div>
         <div class="opt-radio"></div>
       </button>
       <button class="opt" onclick="selVol('200_600','og-vol',this)">
-        <div class="opt-body"><div class="opt-title">200 – 600 paquetes/día</div><div class="opt-desc">Operación media o potencial de crecimiento real</div></div>
+        <div class="opt-body"><div class="opt-title">200 – 600 paq/día</div></div>
         <div class="opt-radio"></div>
       </button>
       <button class="opt" onclick="selVol('800_1200','og-vol',this)">
         <div class="opt-body">
-          <div class="opt-title">800 – 1200 paquetes/día <span style="color:var(--blue);font-size:12px;">✓ zona objetivo</span></div>
+          <div class="opt-title">800 – 1200 paq/día <span style="color:var(--blue);font-size:12px;">✓ zona objetivo</span></div>
           <div class="opt-desc">Ya estoy ahí o tengo estructura para llegar</div>
         </div>
         <div class="opt-radio"></div>
       </button>
       <button class="opt" onclick="selVol('mas1200','og-vol',this)">
-        <div class="opt-body"><div class="opt-title">Más de 1200 paquetes/día</div><div class="opt-desc">Operación grande o cobertura provincial amplia</div></div>
+        <div class="opt-body"><div class="opt-title">Más de 1200 paq/día</div><div class="opt-desc">Operación grande o cobertura provincial amplia</div></div>
         <div class="opt-radio"></div>
       </button>
     </div>
@@ -591,35 +241,51 @@ body {
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       PASO 3 — DATOS DE CONTACTO
-  ══════════════════════════════ -->
+  <!-- PASO 3 — CONTACTO -->
   <div class="screen" id="p3">
     <div class="q-step">Paso 3 de 4</div>
-    <div class="q-title">Tus datos de contacto</div>
-    <div class="q-sub">Solo te pedimos lo esencial para poder llamarte. Sin spam.</div>
+    <div class="q-title">Datos de contacto</div>
+    <div class="q-sub">Solo te pedimos lo esencial. Sin spam.</div>
 
     <div class="form-section">
-      <div class="form-section-title">Quién eres</div>
+      <div class="form-section-title">Tu empresa</div>
       <div class="field">
-        <label>Nombre de tu empresa o razón social <span class="req">*</span></label>
+        <label>Nombre de la empresa o razón social <span class="req">*</span></label>
         <input type="text" id="f-empresa" placeholder="Ej: Transportes García S.L." oninput="chkP3()">
       </div>
       <div class="field-row">
         <div class="field">
-          <label>Nombre del responsable <span class="req">*</span></label>
-          <input type="text" id="f-nombre" placeholder="Tu nombre completo" oninput="chkP3()">
+          <label>Situación legal <span class="req">*</span></label>
+          <select id="f-legal" onchange="onLegalChange(); chkP3()">
+            <option value="">Seleccionar</option>
+            <option value="sl">SL / SA constituida</option>
+            <option value="autonomo">Autónomo activo</option>
+            <option value="sl_proceso">SL en trámite</option>
+            <option value="ninguna">Sin constitución aún</option>
+          </select>
+        </div>
+        <div class="field" id="field-cif">
+          <label>CIF de la empresa <span id="cif-req-tag" class="req">*</span></label>
+          <input type="text" id="f-cif" placeholder="Ej: B12345678" oninput="validarCIF(); chkP3()" maxlength="9" style="text-transform:uppercase">
+          <div class="cif-hint" id="cif-hint">Formato: letra + 8 dígitos (Ej: B12345678)</div>
+          <div class="cif-valid" id="cif-valid">✓ Formato de CIF válido</div>
+          <div class="cif-invalid" id="cif-invalid">✗ Formato incorrecto — revisa el CIF</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Años de experiencia operativa <span class="req">*</span></label>
+          <select id="f-anos" onchange="chkP3()">
+            <option value="">Seleccionar</option>
+            <option>Menos de 1 año</option>
+            <option>1 – 3 años</option>
+            <option>3 – 7 años</option>
+            <option>Más de 7 años</option>
+          </select>
         </div>
         <div class="field">
-          <label>Situación legal</label>
-          <select id="f-legal">
-            <option value="">Seleccionar</option>
-            <option>Autónomo activo</option>
-            <option>SL constituida hace menos de 1 año</option>
-            <option>SL constituida hace más de 1 año</option>
-            <option>SL en trámite</option>
-            <option>Empresa sin tipo concreto</option>
-          </select>
+          <label>Número de conductores / drivers</label>
+          <input type="number" id="f-drivers" placeholder="Ej: 5" min="1">
         </div>
       </div>
     </div>
@@ -628,17 +294,45 @@ body {
       <div class="form-section-title">Contacto</div>
       <div class="field-row">
         <div class="field">
+          <label>Nombre del responsable <span class="req">*</span></label>
+          <input type="text" id="f-nombre" placeholder="Nombre completo" oninput="chkP3()">
+        </div>
+        <div class="field">
           <label>Teléfono <span class="req">*</span></label>
           <input type="tel" id="f-tel" placeholder="+34 600 000 000" oninput="chkP3()">
         </div>
-        <div class="field">
-          <label>Email <span class="req">*</span></label>
-          <input type="email" id="f-email" placeholder="tu@email.com" oninput="chkP3()">
-        </div>
+      </div>
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" id="f-email" placeholder="contacto@empresa.com" oninput="chkP3()">
       </div>
       <div class="field">
         <label>Provincia principal de operación <span class="req">*</span></label>
-        <input type="text" id="f-prov" placeholder="Ej: Sevilla, Madrid, Valencia..." oninput="chkP3()">
+        <select id="f-prov" onchange="chkP3()">
+          <option value="">Selecciona tu provincia</option>
+          <option>Álava</option><option>Albacete</option><option>Alicante</option>
+          <option>Almería</option><option>Asturias</option><option>Ávila</option>
+          <option>Badajoz</option><option>Barcelona</option><option>Burgos</option>
+          <option>Cáceres</option><option>Cádiz</option><option>Cantabria</option>
+          <option>Castellón</option><option>Ciudad Real</option><option>Córdoba</option>
+          <option>Cuenca</option><option>Girona</option><option>Granada</option>
+          <option>Guadalajara</option><option>Guipúzcoa</option><option>Huelva</option>
+          <option>Huesca</option><option>Islas Baleares</option><option>Jaén</option>
+          <option>La Coruña</option><option>La Rioja</option><option>Las Palmas</option>
+          <option>León</option><option>Lleida</option><option>Lugo</option>
+          <option>Madrid</option><option>Málaga</option><option>Murcia</option>
+          <option>Navarra</option><option>Ourense</option><option>Palencia</option>
+          <option>Pontevedra</option><option>Salamanca</option><option>Santa Cruz de Tenerife</option>
+          <option>Segovia</option><option>Sevilla</option><option>Soria</option>
+          <option>Tarragona</option><option>Teruel</option><option>Toledo</option>
+          <option>Valencia</option><option>Valladolid</option><option>Vizcaya</option>
+          <option>Zamora</option><option>Zaragoza</option>
+          <option>Ceuta</option><option>Melilla</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Cobertura específica o comentarios de zona <span class="opt-tag">(opcional)</span></label>
+        <textarea id="f-cobertura" placeholder="Ej: Cubro toda la provincia de Sevilla excepto zona norte. También tengo capacidad en Huelva..."></textarea>
       </div>
     </div>
 
@@ -648,16 +342,13 @@ body {
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       PASO 4 — PREGUNTAS PERFIL
-       (se adapta según el perfil detectado)
-  ══════════════════════════════ -->
+  <!-- PASO 4 — PREGUNTAS ESPECÍFICAS -->
   <div class="screen" id="p4">
     <div class="q-step">Paso 4 de 4 — Último paso</div>
     <div class="q-title" id="p4-title">Un poco más sobre tu operación</div>
-    <div class="q-sub" id="p4-sub">Estas últimas preguntas nos ayudan a preparar la propuesta correcta para ti.</div>
+    <div class="q-sub" id="p4-sub">Estas últimas preguntas nos ayudan a preparar la propuesta adecuada para ti.</div>
 
-    <!-- DSP 2.0 questions -->
+    <!-- DSP 2.0 -->
     <div id="q-dsp20">
       <div class="form-section">
         <div class="form-section-title">Tu ambición</div>
@@ -673,62 +364,60 @@ body {
           </select>
         </div>
         <div class="field">
-          <label>¿Qué es lo que más valoras en una relación con un operador logístico? <span class="req">*</span></label>
+          <label>¿Qué valoras más en un operador logístico? <span class="req">*</span></label>
           <select id="d-valor">
             <option value="">Seleccionar</option>
             <option>Volumen garantizado desde el primer mes</option>
             <option>Soporte técnico y operativo continuo</option>
             <option>Hacer crecer mi negocio a largo plazo</option>
-            <option>Diversificar mis ingresos más allá de mis clientes actuales</option>
+            <option>Diversificar mis ingresos</option>
             <option>Construir una empresa logística propia</option>
           </select>
         </div>
         <div class="field">
-          <label>¿Cuál es tu mayor reto ahora mismo en el reparto?</label>
-          <textarea id="d-reto" placeholder="Cuéntanos brevemente qué te frena o qué quieres mejorar..."></textarea>
+          <label>¿Cuál es tu mayor reto ahora mismo?</label>
+          <textarea id="d-reto" placeholder="Cuéntanos brevemente..."></textarea>
         </div>
       </div>
       <div class="form-section">
         <div class="form-section-title">Tu operación</div>
-        <div class="field">
-          <label>Tipos de vehículo que tienes</label>
-          <select id="d-tipoVeh">
-            <option value="">Seleccionar</option>
-            <option>Solo motos</option>
-            <option>Solo coches</option>
-            <option>Solo furgonetas</option>
-            <option>Mixto (varios tipos)</option>
-            <option>Camionetas o vehículos grandes (+2t)</option>
-          </select>
+        <div class="field-row">
+          <div class="field">
+            <label>Tipos de vehículo</label>
+            <select id="d-tipoVeh">
+              <option value="">Seleccionar</option>
+              <option>Solo motos</option><option>Solo coches</option>
+              <option>Solo furgonetas</option><option>Mixto</option>
+              <option>Camionetas (+2t)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>¿Operas los domingos?</label>
+            <select id="d-domingo">
+              <option value="">Seleccionar</option>
+              <option>Sí, sin problema</option>
+              <option>Sí, con previo aviso</option>
+              <option>Dispuesto si hay volumen</option>
+              <option>No</option>
+            </select>
+          </div>
         </div>
         <div class="field">
           <label>Horario habitual de reparto</label>
           <input type="text" id="d-horario" placeholder="Ej: Lunes a Viernes 8:00–20:00">
         </div>
         <div class="field">
-          <label>¿Tienes almacén o base propia para clasificar paquetes?</label>
+          <label>¿Tienes almacén o base para clasificar paquetes?</label>
           <select id="d-almacen">
             <option value="">Seleccionar</option>
-            <option>Sí, propio</option>
-            <option>Sí, arrendado</option>
-            <option>No — uso un hub externo</option>
-            <option>No tengo</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>¿Operas actualmente los domingos?</label>
-          <select id="d-domingo">
-            <option value="">Seleccionar</option>
-            <option>Sí, sin problema</option>
-            <option>Sí, con previo aviso</option>
-            <option>No, pero estoy dispuesto si hay volumen</option>
-            <option>No</option>
+            <option>Sí, propio</option><option>Sí, arrendado</option>
+            <option>No — uso hub externo</option><option>No tengo</option>
           </select>
         </div>
       </div>
     </div>
 
-    <!-- DIVERSIFICATION questions -->
+    <!-- DIVERSIFICACIÓN / BACKUP -->
     <div id="q-div" style="display:none;">
       <div class="form-section">
         <div class="form-section-title">Tu operación actual</div>
@@ -736,65 +425,69 @@ body {
           <label>¿Con qué operadores trabajas actualmente? <span class="req">*</span></label>
           <input type="text" id="v-operadores" placeholder="Ej: Seur, Amazon, MRW, GLS...">
         </div>
-        <div class="field">
-          <label>Años que lleváis en operación <span class="req">*</span></label>
-          <select id="v-anos">
-            <option value="">Seleccionar</option>
-            <option>Menos de 1 año</option>
-            <option>1–3 años</option>
-            <option>3–7 años</option>
-            <option>Más de 7 años</option>
-          </select>
+        <div class="field-row">
+          <div class="field">
+            <label>Capacidad adicional para CAINIAO <span class="req">*</span></label>
+            <select id="v-capacidad">
+              <option value="">Seleccionar</option>
+              <option>Menos de 200 paq/día adicionales</option>
+              <option>200–500 paq/día adicionales</option>
+              <option>500–1000 paq/día adicionales</option>
+              <option>Escalo la flota si el volumen lo justifica</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>¿Operas los domingos? <span class="req">*</span></label>
+            <select id="v-domingo">
+              <option value="">Seleccionar</option>
+              <option>Sí, habitualmente</option>
+              <option>Sí, con previo aviso</option>
+              <option>Podemos valorarlo</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>¿Tienes cobertura en otras provincias?</label>
+            <select id="v-otrasProv">
+              <option value="">Seleccionar</option>
+              <option>Sí — indico cuáles abajo</option>
+              <option>No — solo mi provincia</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Horario de operación</label>
+            <input type="text" id="v-horario" placeholder="Ej: L–V 7:00–21:00, Sáb 8:00–14:00">
+          </div>
         </div>
         <div class="field">
-          <label>Capacidad adicional disponible para CAINIAO <span class="req">*</span></label>
-          <select id="v-capacidad">
+          <label>¿Tienes almacén o nave para clasificar paquetes? <span class="req">*</span></label>
+          <select id="v-almacen">
             <option value="">Seleccionar</option>
-            <option>Menos de 200 paq/día adicionales</option>
-            <option>200–500 paq/día adicionales</option>
-            <option>500–1000 paq/día adicionales</option>
-            <option>Puedo escalar la flota si el volumen lo justifica</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>¿Tenéis Seguro de Responsabilidad Civil activo? <span class="req">*</span></label>
-          <select id="v-seguro">
-            <option value="">Seleccionar</option>
-            <option>Sí — póliza activa</option>
-            <option>No, pero dispuestos a contratarlo</option>
-            <option>No</option>
+            <option>Sí, propio</option>
+            <option>Sí, arrendado</option>
+            <option>No — usamos instalaciones externas</option>
           </select>
         </div>
       </div>
       <div class="form-section">
-        <div class="form-section-title">Documentación básica</div>
-        <div class="field">
-          <label>CIF de la empresa</label>
-          <input type="text" id="v-cif" placeholder="Ej: B12345678">
-        </div>
-        <div class="field">
-          <label>Nombre del representante legal <span class="req">*</span></label>
-          <input type="text" id="v-rep" placeholder="Nombre completo con poder para firmar">
-        </div>
-        <div class="field">
-          <label>Licencia de transporte (si aplica)</label>
-          <select id="v-licencia">
-            <option value="">Seleccionar</option>
-            <option>Sí — MDL (hasta 3,5t)</option>
-            <option>Sí — MDP (más de 3,5t)</option>
-            <option>No aplica — todos los vehículos son menos de 2t</option>
-            <option>No tenemos</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>¿Operáis los domingos? <span class="req">*</span></label>
-          <select id="v-domingo">
-            <option value="">Seleccionar</option>
-            <option>Sí, habitualmente</option>
-            <option>Sí, con previo aviso</option>
-            <option>No, pero podemos valorarlo</option>
-            <option>No</option>
-          </select>
+        <div class="form-section-title">Documentación</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Nombre del representante legal <span class="req">*</span></label>
+            <input type="text" id="v-rep" placeholder="Nombre completo con poder para firmar">
+          </div>
+          <div class="field">
+            <label>Licencia de transporte</label>
+            <select id="v-licencia">
+              <option value="">Seleccionar</option>
+              <option>Sí — MDL (hasta 3,5t)</option>
+              <option>Sí — MDP (más de 3,5t)</option>
+              <option>No aplica — vehículos menos de 2t</option>
+              <option>No tenemos</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -805,9 +498,7 @@ body {
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       GRACIAS — DSP 2.0
-  ══════════════════════════════ -->
+  <!-- GRACIAS DSP 2.0 -->
   <div class="screen" id="ty-dsp20">
     <div class="thankyou">
       <div class="ty-icon dsp20">🚀</div>
@@ -816,29 +507,15 @@ body {
       <div class="ty-sub">Tu perfil encaja con lo que buscamos para nuestro programa de partners de crecimiento. Uno de nuestros gestores te contactará pronto.</div>
       <div class="steps-box">
         <div class="steps-title">¿Qué pasa ahora?</div>
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-text"><strong>Revisamos tu solicitud</strong> en 1–2 días laborables</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-text"><strong>Te llamamos</strong> para una conversación rápida de presentación</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-text"><strong>Si encaja todo</strong>, te enviamos la propuesta con los códigos postales y condiciones</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-text"><strong>Firma digital</strong> y arrancamos</div>
-        </div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Revisamos tu solicitud</strong> en 1–2 días laborables</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Te llamamos</strong> para una conversación de presentación</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Si encaja todo</strong>, te enviamos la propuesta con códigos postales y condiciones</div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-text"><strong>Firma digital</strong> y arrancamos</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       GRACIAS — DIVERSIFICACIÓN
-  ══════════════════════════════ -->
+  <!-- GRACIAS DIVERSIFICACIÓN -->
   <div class="screen" id="ty-div">
     <div class="thankyou">
       <div class="ty-icon div">🤝</div>
@@ -847,27 +524,31 @@ body {
       <div class="ty-sub">Vuestra operación encaja con lo que buscamos para diversificar nuestra red. Nuestro equipo comercial os contactará en breve.</div>
       <div class="steps-box">
         <div class="steps-title">¿Qué pasa ahora?</div>
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-text"><strong>Revisamos vuestra solicitud</strong> en 1–2 días laborables</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-text"><strong>Os llamamos</strong> para hablar de volumen, zona y condiciones</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-text"><strong>Propuesta comercial</strong> personalizada con vuestros códigos postales</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-text"><strong>Contrato y activación</strong> en el menor tiempo posible</div>
-        </div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Revisamos vuestra solicitud</strong> en 1–2 días laborables</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Os llamamos</strong> para hablar de volumen, zona y condiciones</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Propuesta comercial</strong> personalizada con vuestros códigos postales</div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-text"><strong>Contrato y activación</strong> en el menor tiempo posible</div></div>
       </div>
     </div>
   </div>
 
-  <!-- PUDO REDIRECT -->
+  <!-- GRACIAS BACKUP -->
+  <div class="screen" id="ty-backup">
+    <div class="thankyou">
+      <div class="ty-icon backup">🔒</div>
+      <div class="profile-chip chip-backup">✓ Perfil Backup</div>
+      <div class="ty-title">¡Solicitud recibida!<br>Perfil de soporte operativo</div>
+      <div class="ty-sub">Tu empresa tiene el perfil para formar parte de nuestra red de soporte. Nos pondremos en contacto contigo muy pronto.</div>
+      <div class="steps-box">
+        <div class="steps-title">¿Qué pasa ahora?</div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Revisamos tu solicitud</strong> en 1–2 días laborables</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Te llamamos</strong> para confirmar disponibilidad y condiciones</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Acuerdo de colaboración</strong> y alta en la red de soporte</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUDO -->
   <div class="screen" id="ty-pudo">
     <div class="thankyou">
       <div class="ty-icon pudo">📦</div>
@@ -876,19 +557,12 @@ body {
       <div class="ty-sub">Lo que describes encaja con nuestro programa de puntos de recogida y entrega. El equipo correcto se pondrá en contacto contigo en breve.</div>
       <div class="steps-box">
         <div class="steps-title">Próximo paso</div>
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-text">Hemos recibido tu solicitud y la derivamos al equipo de puntos de recogida</div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-text"><strong>Te contactarán</strong> en los próximos días laborables</div>
-        </div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text">Hemos recibido tu solicitud y la derivamos al equipo de puntos de recogida</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Te contactarán</strong> en los próximos días laborables</div></div>
       </div>
     </div>
   </div>
 
-  <!-- TRUST BAR -->
   <div class="trust">
     <div class="trust-item"><span>+47 hubs activos</span></div>
     <div class="trust-dot"></div>
@@ -899,24 +573,22 @@ body {
     <div class="trust-item"><span>Ecoscooting — partner oficial</span></div>
   </div>
 
-</div><!-- /main -->
+</div>
 
 <script>
-const S = { tipo: null, flota: null, vol: null };
+const S = { tipo:null, flota:null, vol:null };
 let perfil = '';
-
 const STEPS = { p1:1, p2:2, p3:3, p4:4 };
 
 function setProgress(step, total=4) {
-  const pct = ((step-1) / total) * 100;
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('prog-label').textContent = `Paso ${step} de ${total}`;
+  document.getElementById('prog-fill').style.width = ((step-1)/total*100) + '%';
+  document.getElementById('prog-label').textContent = 'Paso ' + step + ' de ' + total;
 }
 
 function ir(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
   document.getElementById(id).classList.add('on');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top:0, behavior:'smooth' });
   if (STEPS[id]) setProgress(STEPS[id]);
   if (id === 'p4') prepararP4();
 }
@@ -930,24 +602,45 @@ function sel1(tipo, groupId, el) {
   S.tipo = tipo;
   selOpt(groupId, el);
   document.getElementById('btn1').disabled = false;
-  // PUDO → skip to end
-  if (tipo === 'pudo_only') {
-    setTimeout(() => irGracias('pudo'), 300);
-  }
+  if (tipo === 'pudo_only') setTimeout(() => irGracias('pudo'), 300);
 }
 
-function selFlota(val, groupId, el) {
-  S.flota = val;
-  selOpt(groupId, el);
-  checkBtn2();
+function selFlota(val, groupId, el) { S.flota = val; selOpt(groupId, el); checkBtn2(); }
+function selVol(val, groupId, el)   { S.vol   = val; selOpt(groupId, el); checkBtn2(); }
+function checkBtn2() { document.getElementById('btn2').disabled = !(S.flota && S.vol); }
+
+// CIF validation
+function validarCIF() {
+  const cif = document.getElementById('f-cif').value.trim().toUpperCase();
+  const hint    = document.getElementById('cif-hint');
+  const valid   = document.getElementById('cif-valid');
+  const invalid = document.getElementById('cif-invalid');
+  if (!cif) { hint.style.display='block'; valid.style.display='none'; invalid.style.display='none'; return false; }
+  // CIF format: 1 letter + 7 digits + 1 letter or digit
+  const cifRegex = /^[ABCDEFGHJKLMNPQRSVWX]\d{7}[0-9A-J]$/;
+  const isValid = cifRegex.test(cif);
+  hint.style.display    = 'none';
+  valid.style.display   = isValid  ? 'block' : 'none';
+  invalid.style.display = !isValid ? 'block' : 'none';
+  return isValid;
 }
-function selVol(val, groupId, el) {
-  S.vol = val;
-  selOpt(groupId, el);
-  checkBtn2();
-}
-function checkBtn2() {
-  document.getElementById('btn2').disabled = !(S.flota && S.vol);
+
+function onLegalChange() {
+  const legal = document.getElementById('f-legal').value;
+  const cifField = document.getElementById('field-cif');
+  const cifReqTag = document.getElementById('cif-req-tag');
+  // CIF required for SL, optional for autonomo/sl_proceso/ninguna
+  if (legal === 'sl') {
+    cifField.style.opacity = '1';
+    cifReqTag.style.display = 'inline';
+  } else {
+    cifField.style.opacity = '0.6';
+    cifReqTag.style.display = 'none';
+    // Clear validation messages
+    document.getElementById('cif-hint').style.display = 'block';
+    document.getElementById('cif-valid').style.display = 'none';
+    document.getElementById('cif-invalid').style.display = 'none';
+  }
 }
 
 function chkP3() {
@@ -955,70 +648,104 @@ function chkP3() {
   const nombre  = document.getElementById('f-nombre').value.trim();
   const tel     = document.getElementById('f-tel').value.trim();
   const email   = document.getElementById('f-email').value.trim();
-  const prov    = document.getElementById('f-prov').value.trim();
-  document.getElementById('btn3').disabled = !(empresa && nombre && tel && email && prov);
+  const prov    = document.getElementById('f-prov').value;
+  const legal   = document.getElementById('f-legal').value;
+  const cif     = document.getElementById('f-cif').value.trim();
+  // CIF required only for SL
+  const cifOk = legal === 'sl' ? validarCIF() : true;
+  document.getElementById('btn3').disabled = !(empresa && nombre && tel && email && prov && legal && cifOk);
 }
 
 function detectarPerfil() {
-  const { tipo, flota, vol } = S;
-  // Tienda con furgo → DSP 2.0 siempre
-  if (tipo === 'tienda_furgo') return 'dsp20';
-  // Autónomo → DSP 2.0
-  if (tipo === 'autonomo') return 'dsp20';
-  // Empresa ya activa → Diversificación
+  const tipo  = S.tipo;
+  const flota = S.flota;
+  const vol   = S.vol;
+  const legal = document.getElementById('f-legal').value;
+  const anos  = document.getElementById('f-anos').value;
+
+  // PUDO already handled
+  if (tipo === 'pudo_only') return 'pudo';
+
+  // No SL → can only be DSP 2.0
+  if (legal !== 'sl') return 'dsp20';
+
+  // Has SL → evaluate structure
   if (tipo === 'empresa') {
-    // Large fleet + high vol → still Diversification (Backup decided internally by Rodrigo)
-    return 'div';
+    // Backup: SL + 4+ vehicles + high volume
+    if (flota === 'cuatro_mas' && (vol === 'mas1200' || vol === '800_1200')) return 'backup';
+    // Diversification: SL + operating + medium-high volume
+    if (vol === 'mas1200' || vol === '800_1200' || vol === '200_600') return 'div';
+    return 'div'; // default for established company with SL
   }
-  return 'dsp20'; // fallback
+
+  // Tienda con furgo + SL → DSP 2.0
+  if (tipo === 'tienda_furgo') return 'dsp20';
+
+  // Autonomo with SL new → DSP 2.0
+  return 'dsp20';
 }
 
 function prepararP4() {
   perfil = detectarPerfil();
-  document.getElementById('q-dsp20').style.display = perfil === 'dsp20' ? 'block' : 'none';
-  document.getElementById('q-div').style.display   = perfil === 'div'   ? 'block' : 'none';
-  if (perfil === 'dsp20') {
+  const isDSP = perfil === 'dsp20';
+  document.getElementById('q-dsp20').style.display = isDSP ? 'block' : 'none';
+  document.getElementById('q-div').style.display   = !isDSP && perfil !== 'pudo' ? 'block' : 'none';
+  if (isDSP) {
     document.getElementById('p4-title').textContent = 'Cuéntanos un poco más sobre ti';
-    document.getElementById('p4-sub').textContent   = 'Estas últimas preguntas nos ayudan a preparar la propuesta más adecuada para tu operación.';
+    document.getElementById('p4-sub').textContent   = 'Estas últimas preguntas nos ayudan a preparar la propuesta más adecuada.';
   } else {
     document.getElementById('p4-title').textContent = 'Datos de vuestra operación';
-    document.getElementById('p4-sub').textContent   = 'Información que necesitamos para preparar una propuesta comercial real para vosotros.';
+    document.getElementById('p4-sub').textContent   = 'Información que necesitamos para preparar una propuesta comercial real.';
   }
 }
 
 function irGracias(p) {
-  // Update progress to done
   document.getElementById('prog-fill').style.width = '100%';
   document.getElementById('prog-label').textContent = '¡Listo!';
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
   document.getElementById('ty-' + p).classList.add('on');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top:0, behavior:'smooth' });
 }
 
 function enviar() {
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz1Bx1EdWTDnxi-CquGBpPrUOBWewSPOAwS6j7mpLlQjLyH7fb9lxrAn5fiXpYXLBK3Yg/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLXnhZJQpadsph2rrTt9w3L8u4jTKOexY6O65foZ8TCqjzCUg-JfUI6e-ioLuRUHRG/exec";
 
   const payload = {
-    empresa:   document.getElementById("f-empresa").value,
-    nombre:    document.getElementById("f-nombre").value,
-    tel:       document.getElementById("f-tel").value,
-    email:     document.getElementById("f-email").value,
-    provincia: document.getElementById("f-prov").value,
-    legal:     document.getElementById("f-legal").value,
-    tipo:      S.tipo,
-    flota:     S.flota,
-    vol:       S.vol,
-    notas:     ""
+    empresa:    document.getElementById('f-empresa').value,
+    nombre:     document.getElementById('f-nombre').value,
+    tel:        document.getElementById('f-tel').value,
+    email:      document.getElementById('f-email').value,
+    provincia:  document.getElementById('f-prov').value,
+    legal:      document.getElementById('f-legal').value,
+    cif:        document.getElementById('f-cif').value,
+    anos:       document.getElementById('f-anos').value,
+    drivers:    document.getElementById('f-drivers').value,
+    cobertura:  document.getElementById('f-cobertura').value,
+    tipo:       S.tipo,
+    flota:      S.flota,
+    vol:        S.vol,
+    perfil_detectado: perfil,
+    // DSP 2.0 specific
+    sl_plan:    document.getElementById('d-sl')?.value || '',
+    valor:      document.getElementById('d-valor')?.value || '',
+    reto:       document.getElementById('d-reto')?.value || '',
+    tipo_veh:   document.getElementById('d-tipoVeh')?.value || '',
+    domingo:    document.getElementById('d-domingo')?.value || document.getElementById('v-domingo')?.value || '',
+    horario:    document.getElementById('d-horario')?.value || document.getElementById('v-horario')?.value || '',
+    almacen:    document.getElementById('d-almacen')?.value || document.getElementById('v-almacen')?.value || '',
+    // Div/Backup specific
+    operadores: document.getElementById('v-operadores')?.value || '',
+    capacidad:  document.getElementById('v-capacidad')?.value || '',
+    otras_prov: document.getElementById('v-otrasProv')?.value || '',
+    rep_legal:  document.getElementById('v-rep')?.value || '',
+    licencia:   document.getElementById('v-licencia')?.value || '',
   };
 
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify(payload)
-  })
-  .then(() => irGracias(perfil))
-  .catch(() => irGracias(perfil));
+  const params = new URLSearchParams();
+  Object.keys(payload).forEach(k => params.append(k, payload[k] || ''));
+  const img = new Image();
+  img.src = SCRIPT_URL + '?' + params.toString();
+  setTimeout(() => irGracias(perfil), 800);
 }
 </script>
 </body>

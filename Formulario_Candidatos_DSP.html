@@ -417,7 +417,7 @@ body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-s
       </div>
     </div>
 
-    <!-- DIVERSIFICACIÓN / BACKUP -->
+    <!-- DIVERSIFICACIÓN -->
     <div id="q-div" style="display:none;">
       <div class="form-section">
         <div class="form-section-title">Tu operación actual</div>
@@ -532,21 +532,7 @@ body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-s
     </div>
   </div>
 
-  <!-- GRACIAS BACKUP -->
-  <div class="screen" id="ty-backup">
-    <div class="thankyou">
-      <div class="ty-icon backup">🔒</div>
-      <div class="profile-chip chip-backup">✓ Perfil Backup</div>
-      <div class="ty-title">¡Solicitud recibida!<br>Perfil de soporte operativo</div>
-      <div class="ty-sub">Tu empresa tiene el perfil para formar parte de nuestra red de soporte. Nos pondremos en contacto contigo muy pronto.</div>
-      <div class="steps-box">
-        <div class="steps-title">¿Qué pasa ahora?</div>
-        <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Revisamos tu solicitud</strong> en 1–2 días laborables</div></div>
-        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Te llamamos</strong> para confirmar disponibilidad y condiciones</div></div>
-        <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Acuerdo de colaboración</strong> y alta en la red de soporte</div></div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- PUDO -->
   <div class="screen" id="ty-pudo">
@@ -671,8 +657,7 @@ function detectarPerfil() {
 
   // Has SL → evaluate structure
   if (tipo === 'empresa') {
-    // Backup: SL + 4+ vehicles + high volume
-    if (flota === 'cuatro_mas' && (vol === 'mas1200' || vol === '800_1200')) return 'backup';
+    // All SL + empresa → Diversificación (Backup decided manually)
     // Diversification: SL + operating + medium-high volume
     if (vol === 'mas1200' || vol === '800_1200' || vol === '200_600') return 'div';
     return 'div'; // default for established company with SL

@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAINIAO — Formulario de cualificación de partner</title>
+<title>Únete a la red CAINIAO — Solicitud de partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --bg: #F4F6FB; --white: #FFFFFF; --text: #0F1117; --muted: #7B8297;
   --light: #E8EBF4; --border: #DDE1EE; --blue: #1F4BE8; --blue-dark: #1438BE;
-  --blue-bg: #EEF2FF; --blue-border: #C7D3FC;
+  --blue-bg: #EEF2FF; --blue-border: #C7D3FC; --teal: #0891B2; --teal-bg: #ECFAFF;
   --green: #059669; --green-bg: #ECFDF5; --green-border: #A7F3D0;
-  --amber: #D97706; --amber-bg: #FFFBEB; --amber-border: #FDE68A;
-  --red: #DC2626; --red-bg: #FEF2F2; --red-border: #FECACA;
-  --shadow: 0 2px 12px rgba(15,17,35,0.07);
+  --amber: #D97706; --amber-bg: #FFFBEB; --red: #DC2626; --shadow: 0 2px 12px rgba(15,17,35,0.07);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-serif; min-height: 100vh; }
@@ -25,121 +23,107 @@ body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-s
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 .hero-content { position: relative; z-index: 1; }
-.hero-logos { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+.hero-logos { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 24px; }
 .logo-cainiao { background: var(--blue); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; padding: 6px 12px; border-radius: 6px; }
 .logo-ecos { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); }
 .logo-sep { color: rgba(255,255,255,0.2); font-size: 16px; }
-.hero-step { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 99px; padding: 5px 16px; font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; }
-.hero h1 { font-size: clamp(20px, 4vw, 28px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 8px; }
-.hero p { font-size: 14px; color: rgba(255,255,255,0.55); max-width: 440px; margin: 0 auto; line-height: 1.6; }
+.hero-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 99px; padding: 6px 16px; font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+.hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 10px; }
+.hero h1 span { color: #60A5FA; }
+.hero p { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 400px; margin: 0 auto; line-height: 1.6; }
 
 .progress-wrap { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 20px; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 8px rgba(0,0,0,0.05); }
-.progress-inner { max-width: 600px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+.progress-inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
 .progress-bar { flex: 1; height: 4px; background: var(--light); border-radius: 99px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.4s ease; }
 .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
 
-.main { max-width: 600px; margin: 0 auto; padding: 28px 16px 80px; }
+.main { max-width: 560px; margin: 0 auto; padding: 28px 16px 80px; }
 .screen { display: none; }
 .screen.on { display: block; animation: fadeUp 0.28s ease; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-.section-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--blue); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 6px; text-transform: uppercase; }
-.section-title { font-size: clamp(17px, 3.5vw, 21px); font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
-.section-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+.q-step { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--blue); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
+.q-title { font-size: clamp(18px, 4vw, 22px); font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+.q-sub { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
 
-.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px; margin-bottom: 14px; box-shadow: var(--shadow); }
-.card-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
-.card-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.opts { display: flex; flex-direction: column; gap: 10px; }
+.opt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: var(--white); border: 1.5px solid var(--border); border-radius: 14px; cursor: pointer; transition: all 0.15s; text-align: left; width: 100%; box-shadow: var(--shadow); }
+.opt:hover { border-color: var(--blue); background: var(--blue-bg); transform: translateY(-1px); }
+.opt.sel { border-color: var(--blue); background: var(--blue-bg); }
+.opt-icon { font-size: 22px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+.opt-body { flex: 1; }
+.opt-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; line-height: 1.3; }
+.opt-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.opt-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; margin-top: 2px; transition: all 0.12s; display: flex; align-items: center; justify-content: center; }
+.opt.sel .opt-radio { border-color: var(--blue); background: var(--blue); }
+.opt.sel .opt-radio::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
 
+.form-section { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.form-section-title { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.form-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .field { margin-bottom: 14px; }
 .field:last-child { margin-bottom: 0; }
 .field label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
 .field label .req { color: var(--red); margin-left: 2px; }
-.field label .opt { color: var(--muted); font-weight: 400; margin-left: 4px; font-size: 11px; }
+.field label .opt-tag { color: var(--muted); font-weight: 400; margin-left: 4px; font-size: 11px; }
 .field input, .field select, .field textarea {
-  width: 100%; background: var(--bg); border: 1.5px solid var(--border);
-  border-radius: 10px; padding: 12px 14px; font-family: 'Figtree', sans-serif;
-  font-size: 15px; color: var(--text); outline: none;
-  transition: border-color 0.15s, background 0.15s; -webkit-appearance: none;
+  width: 100%; background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; font-family: 'Figtree', sans-serif; font-size: 15px; color: var(--text);
+  outline: none; transition: border-color 0.15s, background 0.15s; -webkit-appearance: none;
 }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue); background: var(--white); }
 .field select { cursor: pointer; }
+.field select option { background: #fff; }
 .field textarea { resize: vertical; min-height: 80px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-@media (max-width: 420px) { .field-row { grid-template-columns: 1fr; } }
+@media (max-width: 400px) { .field-row { grid-template-columns: 1fr; } }
 
-/* Doc upload area */
-.doc-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 16px; background: var(--bg);
-  border: 1.5px solid var(--border); border-radius: 10px;
-  margin-bottom: 10px; transition: border-color 0.15s;
-}
-.doc-item:last-child { margin-bottom: 0; }
-.doc-item.has-file { border-color: var(--green); background: var(--green-bg); }
-.doc-item.confirmed { border-color: var(--blue); background: var(--blue-bg); }
-.doc-icon { font-size: 20px; flex-shrink: 0; }
-.doc-body { flex: 1; }
-.doc-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-.doc-desc { font-size: 12px; color: var(--muted); }
-.doc-status { font-size: 11px; font-weight: 600; margin-top: 4px; }
-.doc-status.ok { color: var(--green); }
-.doc-status.pending { color: var(--amber); }
-.doc-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
-.doc-upload-btn {
-  font-size: 12px; font-weight: 600; padding: 6px 12px;
-  background: var(--blue); color: white; border: none;
-  border-radius: 6px; cursor: pointer; white-space: nowrap;
-}
-.doc-confirm-btn {
-  font-size: 12px; font-weight: 600; padding: 6px 12px;
-  background: transparent; color: var(--muted);
-  border: 1px solid var(--border); border-radius: 6px;
-  cursor: pointer; white-space: nowrap;
-}
-.doc-confirm-btn.active { color: var(--green); border-color: var(--green); background: var(--green-bg); }
-input[type="file"] { display: none; }
+.cif-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.cif-valid { color: var(--green); font-size: 11px; margin-top: 4px; display: none; }
+.cif-invalid { color: var(--red); font-size: 11px; margin-top: 4px; display: none; }
 
-/* Opts */
-.opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-.opt { display: flex; align-items: center; gap: 12px; padding: 13px 16px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.12s; text-align: left; width: 100%; }
-.opt:hover { border-color: var(--blue); background: var(--blue-bg); }
-.opt.sel { border-color: var(--blue); background: var(--blue-bg); }
-.opt-title { font-size: 14px; font-weight: 600; flex: 1; }
-.opt-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.12s; }
-.opt.sel .opt-radio { border-color: var(--blue); background: var(--blue); }
-.opt.sel .opt-radio::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
-
-/* Info box */
-.info-box { background: var(--blue-bg); border: 1px solid var(--blue-border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 13px; color: #1E3A8A; line-height: 1.6; }
-.info-box strong { font-weight: 700; }
-.warn-box { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 13px; color: #78350F; line-height: 1.6; }
-
-/* Buttons */
 .btn-row { display: flex; gap: 10px; margin-top: 24px; }
 .btn { padding: 14px 22px; border-radius: 12px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; }
 .btn-primary { background: var(--blue); color: #fff; flex: 1; box-shadow: 0 4px 14px rgba(31,75,232,0.25); }
-.btn-primary:hover { background: var(--blue-dark); }
-.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-ghost { background: var(--white); color: var(--muted); border: 1.5px solid var(--border); padding: 14px 18px; }
 .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-/* Thank you */
-.thankyou { text-align: center; padding: 40px 20px; }
-.ty-icon { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 20px; background: var(--green-bg); }
-.ty-title { font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 10px; }
-.ty-sub { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 440px; margin: 0 auto; }
+.thankyou { text-align: center; padding: 32px 20px; }
+.ty-icon { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 20px; }
+.ty-icon.dsp20 { background: var(--blue-bg); }
+.ty-icon.div { background: var(--teal-bg); }
+.ty-icon.backup { background: var(--amber-bg); }
+.ty-icon.pudo { background: var(--green-bg); }
+.ty-title { font-size: clamp(20px, 4vw, 26px); font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+.ty-sub { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 420px; margin: 0 auto 28px; }
+.steps-box { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: left; margin-bottom: 20px; box-shadow: var(--shadow); }
+.steps-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
+.step-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+.step-item:last-child { margin-bottom: 0; }
+.step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.step-text { font-size: 14px; line-height: 1.5; color: var(--text); }
+.profile-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
+.chip-dsp20 { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+.chip-div { background: var(--teal-bg); color: var(--teal); border: 1px solid #BAE8F5; }
+.chip-backup { background: var(--amber-bg); color: var(--amber); border: 1px solid #FDE68A; }
+.chip-pudo { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+
+.trust { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; padding: 20px 16px; }
+.trust-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+.trust-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
     <div class="hero-logos">
@@ -147,151 +131,185 @@ input[type="file"] { display: none; }
       <div class="logo-sep">×</div>
       <div class="logo-ecos">Ecoscooting</div>
     </div>
-    <div class="hero-step">Formulario de cualificación — Paso 2 de 2</div>
-    <h1>Completa tu perfil de partner</h1>
-    <p>Esta información nos permite preparar una propuesta real y personalizada para tu zona.</p>
+    <div class="hero-pill"><div class="hero-pill-dot"></div>Red activa en España — Plazas disponibles</div>
+    <h1>Únete a la red de reparto<br><span>más ambiciosa de España</span></h1>
+    <p>Cuéntanos sobre tu operación y te diremos en qué programa encajas mejor.</p>
   </div>
 </div>
 
-<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-inner">
     <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-    <div class="progress-label" id="prog-label">Sección 1 de 4</div>
+    <div class="progress-label" id="prog-label">Paso 1 de 4</div>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- ═══════════════════════════
-       SECCIÓN 1 — OPERACIÓN
-  ═══════════════════════════ -->
-  <div class="screen on" id="s1">
-    <div class="section-tag">Sección 1 de 4</div>
-    <div class="section-title">Tu operación actual</div>
-    <div class="section-sub">Cuéntanos cómo funciona tu empresa día a día.</div>
-
-    <div class="form-card">
-      <div class="card-title">Flota y capacidad</div>
-      <div class="field-row">
-        <div class="field">
-          <label>Número exacto de vehículos <span class="req">*</span></label>
-          <input type="number" id="s1-numVeh" placeholder="Ej: 8" min="1" oninput="chkS1()">
+  <!-- PASO 1 — TIPO -->
+  <div class="screen on" id="p1">
+    <div class="q-step">Paso 1 de 4</div>
+    <div class="q-title">¿Cuál describe mejor tu situación actual?</div>
+    <div class="q-sub">No te preocupes si no encajas exactamente — elige la más cercana.</div>
+    <div class="opts" id="og1">
+      <button class="opt" onclick="sel1('empresa','og1',this)">
+        <div class="opt-icon">🏢</div>
+        <div class="opt-body">
+          <div class="opt-title">Empresa de reparto ya en funcionamiento</div>
+          <div class="opt-desc">Tengo SL o empresa registrada, flota activa, y ya reparto para otros operadores</div>
         </div>
-        <div class="field">
-          <label>Tipo de vehículos <span class="req">*</span></label>
-          <select id="s1-tipoVeh" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>Solo motos</option>
-            <option>Solo coches</option>
-            <option>Solo furgonetas</option>
-            <option>Furgonetas y camionetas</option>
-            <option>Mixto — varios tipos</option>
-          </select>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="sel1('autonomo','og1',this)">
+        <div class="opt-icon">🚀</div>
+        <div class="opt-body">
+          <div class="opt-title">Autónomo o empresa nueva — quiero crecer</div>
+          <div class="opt-desc">Tengo vehículo(s) y experiencia en reparto, o una pequeña operación que quiero escalar</div>
         </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label>Número de conductores <span class="req">*</span></label>
-          <input type="number" id="s1-drivers" placeholder="Ej: 10" min="1" oninput="chkS1()">
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="sel1('tienda_furgo','og1',this)">
+        <div class="opt-icon">🏪</div>
+        <div class="opt-body">
+          <div class="opt-title">Tengo un negocio o tienda y también vehículo</div>
+          <div class="opt-desc">Mi actividad principal es otra, pero tengo furgoneta y me interesa repartir como actividad adicional</div>
         </div>
-        <div class="field">
-          <label>Volumen diario actual <span class="req">*</span></label>
-          <select id="s1-vol" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>Menos de 200 paq/día</option>
-            <option>200–500 paq/día</option>
-            <option>500–800 paq/día</option>
-            <option>800–1200 paq/día</option>
-            <option>Más de 1200 paq/día</option>
-          </select>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="sel1('pudo_only','og1',this)">
+        <div class="opt-icon">📦</div>
+        <div class="opt-body">
+          <div class="opt-title">Solo quiero ser punto de recogida y entrega</div>
+          <div class="opt-desc">Tengo un local y quiero recibir y entregar paquetes ahí, sin repartir a domicilio</div>
         </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label>Capacidad adicional para CAINIAO <span class="req">*</span></label>
-          <select id="s1-capAdd" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>Menos de 200 paq/día</option>
-            <option>200–500 paq/día</option>
-            <option>500–1000 paq/día</option>
-            <option>Puedo escalar flota si el volumen lo justifica</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>¿Flota propia o subcontratada? <span class="req">*</span></label>
-          <select id="s1-flotaTipo" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>100% propia</option>
-            <option>Mixta — propia y subcontratada</option>
-            <option>Principalmente subcontratada</option>
-          </select>
-        </div>
-      </div>
+        <div class="opt-radio"></div>
+      </button>
     </div>
-
-    <div class="form-card">
-      <div class="card-title">Infraestructura</div>
-      <div class="field-row">
-        <div class="field">
-          <label>¿Tienes almacén o nave? <span class="req">*</span></label>
-          <select id="s1-almacen" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>Sí — propio</option>
-            <option>Sí — arrendado</option>
-            <option>No — usamos instalaciones externas</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Metros cuadrados disponibles <span class="opt">(aprox.)</span></label>
-          <input type="number" id="s1-m2" placeholder="Ej: 500">
-        </div>
-      </div>
-      <div class="field">
-        <label>Dirección del almacén o base de operaciones <span class="req">*</span></label>
-        <input type="text" id="s1-dir" placeholder="Calle, número, municipio, provincia" oninput="chkS1()">
-      </div>
-    </div>
-
-    <div class="form-card">
-      <div class="card-title">Horarios y disponibilidad</div>
-      <div class="field-row">
-        <div class="field">
-          <label>Horario habitual de reparto <span class="req">*</span></label>
-          <input type="text" id="s1-horario" placeholder="Ej: L–V 8:00–20:00" oninput="chkS1()">
-        </div>
-        <div class="field">
-          <label>¿Operáis domingos y festivos? <span class="req">*</span></label>
-          <select id="s1-domingo" onchange="chkS1()">
-            <option value="">Seleccionar</option>
-            <option>Sí, habitualmente</option>
-            <option>Sí, con previo aviso</option>
-            <option>Podemos valorarlo</option>
-            <option>No</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
     <div class="btn-row">
-      <button class="btn btn-primary" id="btn-s1" disabled onclick="ir('s2')">Siguiente →</button>
+      <button class="btn btn-primary" id="btn1" disabled onclick="ir('p2')">Siguiente →</button>
     </div>
   </div>
 
-  <!-- ═══════════════════════════
-       SECCIÓN 2 — COBERTURA
-  ═══════════════════════════ -->
-  <div class="screen" id="s2">
-    <div class="section-tag">Sección 2 de 4</div>
-    <div class="section-title">Cobertura y zona de operación</div>
-    <div class="section-sub">Necesitamos entender exactamente qué territorio puedes cubrir.</div>
+  <!-- PASO 2 — FLOTA Y VOLUMEN -->
+  <div class="screen" id="p2">
+    <div class="q-step">Paso 2 de 4</div>
+    <div class="q-title">Flota y capacidad de reparto</div>
+    <div class="q-sub">Si todavía no repartes, dinos cuánto crees que podrías hacer con nuestro volumen.</div>
 
-    <div class="form-card">
-      <div class="card-title">Cobertura provincial</div>
+    <div style="font-size:15px;font-weight:600;color:var(--muted);margin-bottom:10px;">Vehículos disponibles</div>
+    <div class="opts" id="og-flota" style="margin-bottom:22px;">
+      <button class="opt" onclick="selFlota('uno','og-flota',this)">
+        <div class="opt-body"><div class="opt-title">1 vehículo</div><div class="opt-desc">Moto, coche o furgoneta</div></div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="selFlota('dos_tres','og-flota',this)">
+        <div class="opt-body"><div class="opt-title">2 – 3 vehículos</div></div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="selFlota('cuatro_mas','og-flota',this)">
+        <div class="opt-body"><div class="opt-title">4 o más vehículos</div></div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+
+    <div style="font-size:15px;font-weight:600;color:var(--muted);margin-bottom:10px;">Capacidad diaria (paquetes)</div>
+    <div class="opts" id="og-vol">
+      <button class="opt" onclick="selVol('menos200','og-vol',this)">
+        <div class="opt-body"><div class="opt-title">Menos de 200 paq/día</div><div class="opt-desc">Operación pequeña o inicio desde cero</div></div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="selVol('200_600','og-vol',this)">
+        <div class="opt-body"><div class="opt-title">200 – 600 paq/día</div></div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="selVol('800_1200','og-vol',this)">
+        <div class="opt-body">
+          <div class="opt-title">800 – 1200 paq/día <span style="color:var(--blue);font-size:12px;">✓ zona objetivo</span></div>
+          <div class="opt-desc">Ya estoy ahí o tengo estructura para llegar</div>
+        </div>
+        <div class="opt-radio"></div>
+      </button>
+      <button class="opt" onclick="selVol('mas1200','og-vol',this)">
+        <div class="opt-body"><div class="opt-title">Más de 1200 paq/día</div><div class="opt-desc">Operación grande o cobertura provincial amplia</div></div>
+        <div class="opt-radio"></div>
+      </button>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="ir('p1')">← Atrás</button>
+      <button class="btn btn-primary" id="btn2" disabled onclick="ir('p3')">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- PASO 3 — CONTACTO -->
+  <div class="screen" id="p3">
+    <div class="q-step">Paso 3 de 4</div>
+    <div class="q-title">Datos de contacto</div>
+    <div class="q-sub">Solo te pedimos lo esencial. Sin spam.</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Tu empresa</div>
       <div class="field">
-        <label>Provincia principal <span class="req">*</span></label>
-        <select id="s2-prov" onchange="chkS2()">
-          <option value="">Selecciona</option>
+        <label>Nombre de la empresa o razón social <span class="req">*</span></label>
+        <input type="text" id="f-empresa" placeholder="Ej: Transportes García S.L." oninput="chkP3()">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Situación legal <span class="req">*</span></label>
+          <select id="f-legal" onchange="onLegalChange(); chkP3()">
+            <option value="">Seleccionar</option>
+            <option value="sl">SL / SA constituida</option>
+            <option value="autonomo">Autónomo activo</option>
+            <option value="sl_proceso">SL en trámite</option>
+            <option value="ninguna">Sin constitución aún</option>
+          </select>
+        </div>
+        <div class="field" id="field-cif">
+          <label>CIF de la empresa <span id="cif-req-tag" class="req">*</span></label>
+          <input type="text" id="f-cif" placeholder="Ej: B12345678" oninput="validarCIF(); chkP3()" maxlength="9" style="text-transform:uppercase">
+          <div class="cif-hint" id="cif-hint">Formato: letra + 8 dígitos (Ej: B12345678)</div>
+          <div class="cif-valid" id="cif-valid">✓ Formato de CIF válido</div>
+          <div class="cif-invalid" id="cif-invalid">✗ Formato incorrecto — revisa el CIF</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Años de experiencia operativa <span class="req">*</span></label>
+          <select id="f-anos" onchange="chkP3()">
+            <option value="">Seleccionar</option>
+            <option>Menos de 1 año</option>
+            <option>1 – 3 años</option>
+            <option>3 – 7 años</option>
+            <option>Más de 7 años</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Número de conductores / drivers</label>
+          <input type="number" id="f-drivers" placeholder="Ej: 5" min="1">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Contacto</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Nombre del responsable <span class="req">*</span></label>
+          <input type="text" id="f-nombre" placeholder="Nombre completo" oninput="chkP3()">
+        </div>
+        <div class="field">
+          <label>Teléfono <span class="req">*</span></label>
+          <input type="tel" id="f-tel" placeholder="+34 600 000 000" oninput="chkP3()">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" id="f-email" placeholder="contacto@empresa.com" oninput="chkP3()">
+      </div>
+      <div class="field">
+        <label>Provincia principal de operación <span class="req">*</span></label>
+        <select id="f-prov" onchange="chkP3()">
+          <option value="">Selecciona tu provincia</option>
           <option>Álava</option><option>Albacete</option><option>Alicante</option>
           <option>Almería</option><option>Asturias</option><option>Ávila</option>
           <option>Badajoz</option><option>Barcelona</option><option>Burgos</option>
@@ -313,377 +331,394 @@ input[type="file"] { display: none; }
         </select>
       </div>
       <div class="field">
-        <label>¿Qué porcentaje de la provincia podéis cubrir? <span class="req">*</span></label>
-        <select id="s2-pct" onchange="chkS2()">
-          <option value="">Seleccionar</option>
-          <option>25% — zona capital o área urbana principal</option>
-          <option>50% — mitad de la provincia</option>
-          <option>75% — la mayor parte de la provincia</option>
-          <option>100% — toda la provincia</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Describe tu zona de cobertura <span class="req">*</span></label>
-        <textarea id="s2-zona" placeholder="Ej: Cubrimos toda la provincia de Sevilla excepto Sierra Norte. También llegamos a parte de Huelva capital..." oninput="chkS2()"></textarea>
-      </div>
-      <div class="field">
-        <label>Códigos postales principales que cubres <span class="opt">(opcional pero muy útil)</span></label>
-        <textarea id="s2-cps" placeholder="Ej: 41001, 41002, 41003, 41010..."></textarea>
-      </div>
-    </div>
-
-    <div class="form-card">
-      <div class="card-title">Otras provincias</div>
-      <div class="field">
-        <label>¿Operáis en otras provincias? <span class="req">*</span></label>
-        <div class="opts" id="og-otrasProv">
-          <button class="opt" onclick="selOpt('og-otrasProv',this,'otrasProv','si')">
-            <span class="opt-title">Sí — tenemos cobertura en otras zonas</span>
-            <div class="opt-radio"></div>
-          </button>
-          <button class="opt" onclick="selOpt('og-otrasProv',this,'otrasProv','no')">
-            <span class="opt-title">No — solo operamos en nuestra provincia</span>
-            <div class="opt-radio"></div>
-          </button>
-        </div>
-      </div>
-      <div class="field" id="field-otrasProv" style="display:none">
-        <label>¿En qué otras provincias?</label>
-        <input type="text" id="s2-otrasProv" placeholder="Ej: Huelva, Cádiz...">
+        <label>Cobertura específica o comentarios de zona <span class="opt-tag">(opcional)</span></label>
+        <textarea id="f-cobertura" placeholder="Ej: Cubro toda la provincia de Sevilla excepto zona norte. También tengo capacidad en Huelva..."></textarea>
       </div>
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-ghost" onclick="ir('s1')">← Atrás</button>
-      <button class="btn btn-primary" id="btn-s2" disabled onclick="ir('s3')">Siguiente →</button>
+      <button class="btn btn-ghost" onclick="ir('p2')">← Atrás</button>
+      <button class="btn btn-primary" id="btn3" disabled onclick="ir('p4')">Siguiente →</button>
     </div>
   </div>
 
-  <!-- ═══════════════════════════
-       SECCIÓN 3 — EXPERIENCIA
-  ═══════════════════════════ -->
-  <div class="screen" id="s3">
-    <div class="section-tag">Sección 3 de 4</div>
-    <div class="section-title">Experiencia y clientes actuales</div>
-    <div class="section-sub">Queremos entender con quién trabajáis y vuestra trayectoria operativa.</div>
+  <!-- PASO 4 — PREGUNTAS ESPECÍFICAS -->
+  <div class="screen" id="p4">
+    <div class="q-step">Paso 4 de 4 — Último paso</div>
+    <div class="q-title" id="p4-title">Un poco más sobre tu operación</div>
+    <div class="q-sub" id="p4-sub">Estas últimas preguntas nos ayudan a preparar la propuesta adecuada para ti.</div>
 
-    <div class="form-card">
-      <div class="card-title">Clientes y operadores</div>
-      <div class="field">
-        <label>¿Con qué operadores trabajáis actualmente? <span class="req">*</span></label>
-        <input type="text" id="s3-operadores" placeholder="Ej: Seur, Amazon Flex, MRW, GLS, Correos Express..." oninput="chkS3()">
-      </div>
-      <div class="field-row">
+    <!-- DSP 2.0 -->
+    <div id="q-dsp20">
+      <div class="form-section">
+        <div class="form-section-title">Tu ambición</div>
         <div class="field">
-          <label>Años de experiencia operativa <span class="req">*</span></label>
-          <select id="s3-anos" onchange="chkS3()">
+          <label>¿Estás abierto a constituir una SL si aún no la tienes? <span class="req">*</span></label>
+          <select id="d-sl">
             <option value="">Seleccionar</option>
-            <option>Menos de 1 año</option>
-            <option>1–3 años</option>
-            <option>3–7 años</option>
-            <option>Más de 7 años</option>
+            <option>Ya tengo SL</option>
+            <option>Sí — lo estoy planificando</option>
+            <option>Sí — si CAINIAO me apoya en el proceso</option>
+            <option>Todavía no lo he valorado</option>
+            <option>No por ahora</option>
           </select>
         </div>
         <div class="field">
-          <label>Años de la SL constituida</label>
-          <select id="s3-anosSL">
+          <label>¿Qué valoras más en un operador logístico? <span class="req">*</span></label>
+          <select id="d-valor">
             <option value="">Seleccionar</option>
-            <option>Menos de 1 año</option>
-            <option>1–3 años</option>
-            <option>3–7 años</option>
-            <option>Más de 7 años</option>
+            <option>Volumen garantizado desde el primer mes</option>
+            <option>Soporte técnico y operativo continuo</option>
+            <option>Hacer crecer mi negocio a largo plazo</option>
+            <option>Diversificar mis ingresos</option>
+            <option>Construir una empresa logística propia</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>¿Cuál es tu mayor reto ahora mismo?</label>
+          <textarea id="d-reto" placeholder="Cuéntanos brevemente..."></textarea>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">Tu operación</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Tipos de vehículo</label>
+            <select id="d-tipoVeh">
+              <option value="">Seleccionar</option>
+              <option>Solo motos</option><option>Solo coches</option>
+              <option>Solo furgonetas</option><option>Mixto</option>
+              <option>Camionetas (+2t)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>¿Operas los domingos?</label>
+            <select id="d-domingo">
+              <option value="">Seleccionar</option>
+              <option>Sí, sin problema</option>
+              <option>Sí, con previo aviso</option>
+              <option>Dispuesto si hay volumen</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Horario habitual de reparto</label>
+          <input type="text" id="d-horario" placeholder="Ej: Lunes a Viernes 8:00–20:00">
+        </div>
+        <div class="field">
+          <label>¿Tienes almacén o base para clasificar paquetes?</label>
+          <select id="d-almacen">
+            <option value="">Seleccionar</option>
+            <option>Sí, propio</option><option>Sí, arrendado</option>
+            <option>No — uso hub externo</option><option>No tengo</option>
           </select>
         </div>
       </div>
-      <div class="field">
-        <label>¿Por qué queréis añadir CAINIAO a vuestra cartera? <span class="req">*</span></label>
-        <textarea id="s3-motivo" placeholder="Cuéntanos brevemente vuestra motivación..." oninput="chkS3()"></textarea>
-      </div>
     </div>
 
-    <div class="form-card">
-      <div class="card-title">Representante legal</div>
-      <div class="field-row">
+    <!-- DIVERSIFICACIÓN -->
+    <div id="q-div" style="display:none;">
+      <div class="form-section">
+        <div class="form-section-title">Tu operación actual</div>
         <div class="field">
-          <label>Nombre completo <span class="req">*</span></label>
-          <input type="text" id="s3-rep" placeholder="Nombre con poder para firmar" oninput="chkS3()">
+          <label>¿Con qué operadores trabajas actualmente? <span class="req">*</span></label>
+          <input type="text" id="v-operadores" placeholder="Ej: Seur, Amazon, MRW, GLS...">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Capacidad adicional para CAINIAO <span class="req">*</span></label>
+            <select id="v-capacidad">
+              <option value="">Seleccionar</option>
+              <option>Menos de 200 paq/día adicionales</option>
+              <option>200–500 paq/día adicionales</option>
+              <option>500–1000 paq/día adicionales</option>
+              <option>Escalo la flota si el volumen lo justifica</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>¿Operas los domingos? <span class="req">*</span></label>
+            <select id="v-domingo">
+              <option value="">Seleccionar</option>
+              <option>Sí, habitualmente</option>
+              <option>Sí, con previo aviso</option>
+              <option>Podemos valorarlo</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>¿Tienes cobertura en otras provincias?</label>
+            <select id="v-otrasProv">
+              <option value="">Seleccionar</option>
+              <option>Sí — indico cuáles abajo</option>
+              <option>No — solo mi provincia</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Horario de operación</label>
+            <input type="text" id="v-horario" placeholder="Ej: L–V 7:00–21:00, Sáb 8:00–14:00">
+          </div>
         </div>
         <div class="field">
-          <label>DNI / NIE del representante <span class="req">*</span></label>
-          <input type="text" id="s3-dni" placeholder="Ej: 12345678A" oninput="chkS3()" style="text-transform:uppercase">
+          <label>¿Tienes almacén o nave para clasificar paquetes? <span class="req">*</span></label>
+          <select id="v-almacen">
+            <option value="">Seleccionar</option>
+            <option>Sí, propio</option>
+            <option>Sí, arrendado</option>
+            <option>No — usamos instalaciones externas</option>
+          </select>
         </div>
       </div>
-      <div class="field">
-        <label>Licencia de transporte</label>
-        <select id="s3-licencia">
-          <option value="">Seleccionar</option>
-          <option>Sí — MDL (vehículos hasta 3,5t)</option>
-          <option>Sí — MDP (vehículos más de 3,5t)</option>
-          <option>No aplica — todos los vehículos son menos de 2t</option>
-          <option>No tenemos</option>
-        </select>
+      <div class="form-section">
+        <div class="form-section-title">Documentación</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Nombre del representante legal <span class="req">*</span></label>
+            <input type="text" id="v-rep" placeholder="Nombre completo con poder para firmar">
+          </div>
+          <div class="field">
+            <label>Licencia de transporte</label>
+            <select id="v-licencia">
+              <option value="">Seleccionar</option>
+              <option>Sí — MDL (hasta 3,5t)</option>
+              <option>Sí — MDP (más de 3,5t)</option>
+              <option>No aplica — vehículos menos de 2t</option>
+              <option>No tenemos</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-ghost" onclick="ir('s2')">← Atrás</button>
-      <button class="btn btn-primary" id="btn-s3" disabled onclick="ir('s4')">Siguiente →</button>
+      <button class="btn btn-ghost" onclick="ir('p3')">← Atrás</button>
+      <button class="btn btn-primary" onclick="enviar()">Enviar solicitud ✓</button>
     </div>
   </div>
 
-  <!-- ═══════════════════════════
-       SECCIÓN 4 — DOCUMENTACIÓN
-  ═══════════════════════════ -->
-  <div class="screen" id="s4">
-    <div class="section-tag">Sección 4 de 4 — Último paso</div>
-    <div class="section-title">Documentación básica</div>
-    <div class="section-sub">Para avanzar en el proceso necesitamos verificar que vuestra empresa cumple los requisitos mínimos.</div>
-
-    <div class="info-box">
-      <strong>¿Por qué pedimos esto ahora?</strong><br>
-      No necesitamos todos los documentos en este momento — solo los esenciales para verificar que vuestra empresa está activa y en regla antes de la llamada comercial. El resto de documentación se gestiona en la fase de contrato.
-    </div>
-
-    <div class="form-card">
-      <div class="card-title">Documentos requeridos</div>
-
-      <!-- DOC 1 -->
-      <div class="doc-item" id="doc1-item">
-        <div class="doc-icon">📋</div>
-        <div class="doc-body">
-          <div class="doc-name">Nota Simple del Registro Mercantil <span style="color:var(--red);font-size:12px;">*</span></div>
-          <div class="doc-desc">Confirma que la SL está activa y quién es el representante legal</div>
-          <div class="doc-status pending" id="doc1-status">Pendiente</div>
-        </div>
-        <div class="doc-actions">
-          <button class="doc-upload-btn" onclick="triggerUpload('doc1')">📎 Subir archivo</button>
-          <button class="doc-confirm-btn" id="doc1-confirm" onclick="toggleConfirm('doc1')">✓ La tengo disponible</button>
-          <input type="file" id="doc1-file" accept=".pdf,.jpg,.jpeg,.png" onchange="onFileSelected('doc1')">
-        </div>
-      </div>
-
-      <!-- DOC 2 -->
-      <div class="doc-item" id="doc2-item">
-        <div class="doc-icon">📋</div>
-        <div class="doc-body">
-          <div class="doc-name">Certificado AEAT — Al corriente con Hacienda <span style="color:var(--red);font-size:12px;">*</span></div>
-          <div class="doc-desc">Antigüedad máxima: 3 meses</div>
-          <div class="doc-status pending" id="doc2-status">Pendiente</div>
-        </div>
-        <div class="doc-actions">
-          <button class="doc-upload-btn" onclick="triggerUpload('doc2')">📎 Subir archivo</button>
-          <button class="doc-confirm-btn" id="doc2-confirm" onclick="toggleConfirm('doc2')">✓ La tengo disponible</button>
-          <input type="file" id="doc2-file" accept=".pdf,.jpg,.jpeg,.png" onchange="onFileSelected('doc2')">
-        </div>
-      </div>
-
-      <!-- DOC 3 -->
-      <div class="doc-item" id="doc3-item">
-        <div class="doc-icon">📋</div>
-        <div class="doc-body">
-          <div class="doc-name">Certificado TGSS — Al corriente con la Seguridad Social <span style="color:var(--red);font-size:12px;">*</span></div>
-          <div class="doc-desc">Antigüedad máxima: 3 meses</div>
-          <div class="doc-status pending" id="doc3-status">Pendiente</div>
-        </div>
-        <div class="doc-actions">
-          <button class="doc-upload-btn" onclick="triggerUpload('doc3')">📎 Subir archivo</button>
-          <button class="doc-confirm-btn" id="doc3-confirm" onclick="toggleConfirm('doc3')">✓ La tengo disponible</button>
-          <input type="file" id="doc3-file" accept=".pdf,.jpg,.jpeg,.png" onchange="onFileSelected('doc3')">
-        </div>
-      </div>
-
-      <!-- DOC 4 -->
-      <div class="doc-item" id="doc4-item">
-        <div class="doc-icon">📋</div>
-        <div class="doc-body">
-          <div class="doc-name">Seguro de Responsabilidad Civil <span style="color:var(--amber);font-size:12px;">(recomendado)</span></div>
-          <div class="doc-desc">Si no lo tienes aún, puedes indicar que estás en proceso de contratarlo</div>
-          <div class="doc-status pending" id="doc4-status">Pendiente</div>
-        </div>
-        <div class="doc-actions">
-          <button class="doc-upload-btn" onclick="triggerUpload('doc4')">📎 Subir archivo</button>
-          <button class="doc-confirm-btn" id="doc4-confirm" onclick="toggleConfirm('doc4')">✓ La tengo disponible</button>
-          <input type="file" id="doc4-file" accept=".pdf,.jpg,.jpeg,.png" onchange="onFileSelected('doc4')">
-        </div>
-      </div>
-
-    </div>
-
-    <div class="warn-box">
-      ⚠️ <strong>Nota:</strong> Los documentos son opcionales en esta fase — puedes confirmar que los tienes disponibles sin subirlos ahora. Sin embargo, serán necesarios antes de la firma del contrato.
-    </div>
-
-    <div class="field">
-      <label>¿Algún comentario adicional para nuestro equipo? <span class="opt">(opcional)</span></label>
-      <textarea id="s4-notas" placeholder="Cualquier información que quieras añadir..."></textarea>
-    </div>
-
-    <div class="btn-row">
-      <button class="btn btn-ghost" onclick="ir('s3')">← Atrás</button>
-      <button class="btn btn-primary" onclick="enviar()">Enviar solicitud completa ✓</button>
-    </div>
-  </div>
-
-  <!-- GRACIAS -->
-  <div class="screen" id="ty">
+  <!-- GRACIAS — pantalla genérica -->
+  <div class="screen" id="ty-dsp20">
     <div class="thankyou">
-      <div class="ty-icon">✅</div>
-      <div class="ty-title">¡Solicitud completa!</div>
-      <div class="ty-sub">
-        Hemos recibido toda tu información. Nuestro equipo la revisará y se pondrá en contacto contigo si tu perfil encaja con las necesidades actuales en tu zona.
+      <div class="ty-icon dsp20">✅</div>
+      <div class="ty-title">¡Solicitud recibida!</div>
+      <div class="ty-sub">Hemos recibido tu solicitud correctamente. Nuestro equipo la revisará y se pondrá en contacto contigo si tu perfil encaja con las necesidades actuales en tu zona.</div>
+      <div class="steps-box">
+        <div class="steps-title">¿Qué pasa ahora?</div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text">Revisamos tu solicitud y validamos tu perfil</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text">Te llamamos para una conversación de presentación</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text">Si encaja, te enviamos una propuesta con condiciones y zona asignada</div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-text">Firma digital y arrancamos</div></div>
       </div>
     </div>
   </div>
 
-</div><!-- /main -->
+  <div class="screen" id="ty-div">
+    <div class="thankyou">
+      <div class="ty-icon div">✅</div>
+      <div class="ty-title">¡Solicitud recibida!</div>
+      <div class="ty-sub">Hemos recibido tu solicitud correctamente. Nuestro equipo la revisará y se pondrá en contacto contigo si tu perfil encaja con las necesidades actuales en tu zona.</div>
+      <div class="steps-box">
+        <div class="steps-title">¿Qué pasa ahora?</div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-text">Revisamos tu solicitud y validamos tu perfil</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text">Te llamamos para una conversación de presentación</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text">Si encaja, te enviamos una propuesta con condiciones y zona asignada</div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-text">Firma digital y arrancamos</div></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="screen" id="ty-pudo">
+    <div class="thankyou">
+      <div class="ty-icon pudo">📦</div>
+      <div class="ty-title">¡Gracias por tu interés!</div>
+      <div class="ty-sub">Hemos recibido tu solicitud. El equipo correspondiente se pondrá en contacto contigo en los próximos días.</div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-item"><span>+47 hubs activos</span></div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>50 provincias</span></div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>Tecnología CAINIAO</span></div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>Ecoscooting — partner oficial</span></div>
+  </div>
+
+</div>
 
 <script>
-const docState = { doc1: false, doc2: false, doc3: false, doc4: false };
-const docConfirmed = { doc1: false, doc2: false, doc3: false, doc4: false };
-const S = { otrasProv: null };
+const S = { tipo:null, flota:null, vol:null };
+let perfil = '';
+const STEPS = { p1:1, p2:2, p3:3, p4:4 };
+
+function setProgress(step, total=4) {
+  document.getElementById('prog-fill').style.width = ((step-1)/total*100) + '%';
+  document.getElementById('prog-label').textContent = 'Paso ' + step + ' de ' + total;
+}
 
 function ir(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   window.scrollTo({ top:0, behavior:'smooth' });
-  const steps = { s1:1, s2:2, s3:3, s4:4 };
-  if (steps[id]) {
-    document.getElementById('prog-fill').style.width = ((steps[id]-1)/4*100) + '%';
-    document.getElementById('prog-label').textContent = 'Sección ' + steps[id] + ' de 4';
-  }
-  if (id === 'ty') {
-    document.getElementById('prog-fill').style.width = '100%';
-    document.getElementById('prog-label').textContent = '¡Completado!';
-  }
+  if (STEPS[id]) setProgress(STEPS[id]);
+  if (id === 'p4') prepararP4();
 }
 
-function selOpt(groupId, el, key, val) {
+function selOpt(groupId, el) {
   document.querySelectorAll('#'+groupId+' .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
-  S[key] = val;
-  if (key === 'otrasProv') {
-    document.getElementById('field-otrasProv').style.display = val === 'si' ? 'block' : 'none';
-  }
-  chkS2();
 }
 
-// Section validation
-function chkS1() {
-  const ok = document.getElementById('s1-numVeh').value &&
-             document.getElementById('s1-tipoVeh').value &&
-             document.getElementById('s1-drivers').value &&
-             document.getElementById('s1-vol').value &&
-             document.getElementById('s1-capAdd').value &&
-             document.getElementById('s1-flotaTipo').value &&
-             document.getElementById('s1-almacen').value &&
-             document.getElementById('s1-dir').value &&
-             document.getElementById('s1-horario').value &&
-             document.getElementById('s1-domingo').value;
-  document.getElementById('btn-s1').disabled = !ok;
+function sel1(tipo, groupId, el) {
+  S.tipo = tipo;
+  selOpt(groupId, el);
+  document.getElementById('btn1').disabled = false;
+  if (tipo === 'pudo_only') setTimeout(() => irGracias('pudo'), 300);
 }
 
-function chkS2() {
-  const ok = document.getElementById('s2-prov').value &&
-             document.getElementById('s2-pct').value &&
-             document.getElementById('s2-zona').value.trim() &&
-             S.otrasProv !== null;
-  document.getElementById('btn-s2').disabled = !ok;
+function selFlota(val, groupId, el) { S.flota = val; selOpt(groupId, el); checkBtn2(); }
+function selVol(val, groupId, el)   { S.vol   = val; selOpt(groupId, el); checkBtn2(); }
+function checkBtn2() { document.getElementById('btn2').disabled = !(S.flota && S.vol); }
+
+// CIF validation
+function validarCIF() {
+  const cif = document.getElementById('f-cif').value.trim().toUpperCase();
+  const hint    = document.getElementById('cif-hint');
+  const valid   = document.getElementById('cif-valid');
+  const invalid = document.getElementById('cif-invalid');
+  if (!cif) { hint.style.display='block'; valid.style.display='none'; invalid.style.display='none'; return false; }
+  // CIF format: 1 letter + 7 digits + 1 letter or digit
+  const cifRegex = /^[ABCDEFGHJKLMNPQRSVWX]\d{7}[0-9A-J]$/;
+  const isValid = cifRegex.test(cif);
+  hint.style.display    = 'none';
+  valid.style.display   = isValid  ? 'block' : 'none';
+  invalid.style.display = !isValid ? 'block' : 'none';
+  return isValid;
 }
 
-function chkS3() {
-  const ok = document.getElementById('s3-operadores').value.trim() &&
-             document.getElementById('s3-anos').value &&
-             document.getElementById('s3-motivo').value.trim() &&
-             document.getElementById('s3-rep').value.trim() &&
-             document.getElementById('s3-dni').value.trim();
-  document.getElementById('btn-s3').disabled = !ok;
-}
-
-// Doc handling
-function triggerUpload(docId) {
-  document.getElementById(docId + '-file').click();
-}
-
-function onFileSelected(docId) {
-  const file = document.getElementById(docId + '-file').files[0];
-  if (!file) return;
-  docState[docId] = true;
-  const item   = document.getElementById(docId + '-item');
-  const status = document.getElementById(docId + '-status');
-  item.classList.add('has-file');
-  item.classList.remove('confirmed');
-  status.className = 'doc-status ok';
-  status.textContent = '✓ Archivo adjunto: ' + file.name;
-}
-
-function toggleConfirm(docId) {
-  const btn    = document.getElementById(docId + '-confirm');
-  const item   = document.getElementById(docId + '-item');
-  const status = document.getElementById(docId + '-status');
-  docConfirmed[docId] = !docConfirmed[docId];
-  if (docConfirmed[docId]) {
-    btn.classList.add('active');
-    btn.textContent = '✓ Confirmado';
-    if (!docState[docId]) {
-      item.classList.add('confirmed');
-      status.className = 'doc-status ok';
-      status.textContent = '✓ Disponible — se aportará antes del contrato';
-    }
+function onLegalChange() {
+  const legal = document.getElementById('f-legal').value;
+  const cifField = document.getElementById('field-cif');
+  const cifReqTag = document.getElementById('cif-req-tag');
+  // CIF required for SL, optional for autonomo/sl_proceso/ninguna
+  if (legal === 'sl') {
+    cifField.style.opacity = '1';
+    cifReqTag.style.display = 'inline';
   } else {
-    btn.classList.remove('active');
-    btn.textContent = '✓ La tengo disponible';
-    if (!docState[docId]) {
-      item.classList.remove('confirmed');
-      status.className = 'doc-status pending';
-      status.textContent = 'Pendiente';
-    }
+    cifField.style.opacity = '0.6';
+    cifReqTag.style.display = 'none';
+    // Clear validation messages
+    document.getElementById('cif-hint').style.display = 'block';
+    document.getElementById('cif-valid').style.display = 'none';
+    document.getElementById('cif-invalid').style.display = 'none';
   }
+}
+
+function chkP3() {
+  const empresa = document.getElementById('f-empresa').value.trim();
+  const nombre  = document.getElementById('f-nombre').value.trim();
+  const tel     = document.getElementById('f-tel').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const prov    = document.getElementById('f-prov').value;
+  const legal   = document.getElementById('f-legal').value;
+  const cif     = document.getElementById('f-cif').value.trim();
+  // CIF required only for SL
+  const cifOk = legal === 'sl' ? validarCIF() : true;
+  document.getElementById('btn3').disabled = !(empresa && nombre && tel && email && prov && legal && cifOk);
+}
+
+function detectarPerfil() {
+  const tipo  = S.tipo;
+  const flota = S.flota;
+  const vol   = S.vol;
+  const legal = document.getElementById('f-legal').value;
+  const anos  = document.getElementById('f-anos').value;
+
+  // PUDO already handled
+  if (tipo === 'pudo_only') return 'pudo';
+
+  // No SL → can only be DSP 2.0
+  if (legal !== 'sl') return 'dsp20';
+
+  // Has SL → evaluate structure
+  if (tipo === 'empresa') {
+    // All SL + empresa → Diversificación (Backup decided manually)
+    // Diversification: SL + operating + medium-high volume
+    if (vol === 'mas1200' || vol === '800_1200' || vol === '200_600') return 'div';
+    return 'div'; // default for established company with SL
+  }
+
+  // Tienda con furgo + SL → DSP 2.0
+  if (tipo === 'tienda_furgo') return 'dsp20';
+
+  // Autonomo with SL new → DSP 2.0
+  return 'dsp20';
+}
+
+function prepararP4() {
+  perfil = detectarPerfil();
+  const isDSP = perfil === 'dsp20';
+  document.getElementById('q-dsp20').style.display = isDSP ? 'block' : 'none';
+  document.getElementById('q-div').style.display   = !isDSP && perfil !== 'pudo' ? 'block' : 'none';
+  if (isDSP) {
+    document.getElementById('p4-title').textContent = 'Cuéntanos un poco más sobre ti';
+    document.getElementById('p4-sub').textContent   = 'Estas últimas preguntas nos ayudan a preparar la propuesta más adecuada.';
+  } else {
+    document.getElementById('p4-title').textContent = 'Datos de vuestra operación';
+    document.getElementById('p4-sub').textContent   = 'Información que necesitamos para preparar una propuesta comercial real.';
+  }
+}
+
+function irGracias(p) {
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('prog-label').textContent = '¡Listo!';
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+  document.getElementById('ty-' + p).classList.add('on');
+  window.scrollTo({ top:0, behavior:'smooth' });
 }
 
 function enviar() {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwlVZoR_aU5mqcyM1ElIfGOsrsBGuC43x57f3BpClfh3Cqy0rD6FVtQIz9n7lpx1QlXsg/exec";
 
   const payload = {
-    form: "2",
-    // Sección 1
-    num_veh:    document.getElementById('s1-numVeh').value,
-    tipo_veh:   document.getElementById('s1-tipoVeh').value,
-    drivers:    document.getElementById('s1-drivers').value,
-    vol:        document.getElementById('s1-vol').value,
-    cap_add:    document.getElementById('s1-capAdd').value,
-    flota_tipo: document.getElementById('s1-flotaTipo').value,
-    almacen:    document.getElementById('s1-almacen').value,
-    m2:         document.getElementById('s1-m2').value,
-    direccion:  document.getElementById('s1-dir').value,
-    horario:    document.getElementById('s1-horario').value,
-    domingo:    document.getElementById('s1-domingo').value,
-    // Sección 2
-    provincia:  document.getElementById('s2-prov').value,
-    pct_prov:   document.getElementById('s2-pct').value,
-    zona:       document.getElementById('s2-zona').value,
-    cps:        document.getElementById('s2-cps').value,
-    otras_prov: S.otrasProv === 'si' ? document.getElementById('s2-otrasProv').value : 'No',
-    // Sección 3
-    operadores: document.getElementById('s3-operadores').value,
-    anos:       document.getElementById('s3-anos').value,
-    anos_sl:    document.getElementById('s3-anosSL').value,
-    motivo:     document.getElementById('s3-motivo').value,
-    rep_legal:  document.getElementById('s3-rep').value,
-    dni_rep:    document.getElementById('s3-dni').value,
-    licencia:   document.getElementById('s3-licencia').value,
-    // Sección 4 — doc status
-    doc1: docState.doc1 ? 'subido' : docConfirmed.doc1 ? 'confirmado' : 'pendiente',
-    doc2: docState.doc2 ? 'subido' : docConfirmed.doc2 ? 'confirmado' : 'pendiente',
-    doc3: docState.doc3 ? 'subido' : docConfirmed.doc3 ? 'confirmado' : 'pendiente',
-    doc4: docState.doc4 ? 'subido' : docConfirmed.doc4 ? 'confirmado' : 'pendiente',
-    notas: document.getElementById('s4-notas').value,
+    empresa:    document.getElementById('f-empresa').value,
+    nombre:     document.getElementById('f-nombre').value,
+    tel:        document.getElementById('f-tel').value,
+    email:      document.getElementById('f-email').value,
+    provincia:  document.getElementById('f-prov').value,
+    legal:      document.getElementById('f-legal').value,
+    cif:        document.getElementById('f-cif').value,
+    anos:       document.getElementById('f-anos').value,
+    drivers:    document.getElementById('f-drivers').value,
+    cobertura:  document.getElementById('f-cobertura').value,
+    tipo:       S.tipo,
+    flota:      S.flota,
+    vol:        S.vol,
+    perfil_detectado: perfil,
+    // DSP 2.0 specific
+    sl_plan:    document.getElementById('d-sl')?.value || '',
+    valor:      document.getElementById('d-valor')?.value || '',
+    reto:       document.getElementById('d-reto')?.value || '',
+    tipo_veh:   document.getElementById('d-tipoVeh')?.value || '',
+    domingo:    document.getElementById('d-domingo')?.value || document.getElementById('v-domingo')?.value || '',
+    horario:    document.getElementById('d-horario')?.value || document.getElementById('v-horario')?.value || '',
+    almacen:    document.getElementById('d-almacen')?.value || document.getElementById('v-almacen')?.value || '',
+    // Div/Backup specific
+    operadores: document.getElementById('v-operadores')?.value || '',
+    capacidad:  document.getElementById('v-capacidad')?.value || '',
+    otras_prov: document.getElementById('v-otrasProv')?.value || '',
+    rep_legal:  document.getElementById('v-rep')?.value || '',
+    licencia:   document.getElementById('v-licencia')?.value || '',
   };
 
   const params = new URLSearchParams();
   Object.keys(payload).forEach(k => params.append(k, payload[k] || ''));
   const img = new Image();
   img.src = SCRIPT_URL + '?' + params.toString();
-  setTimeout(() => ir('ty'), 800);
+  setTimeout(() => irGracias(perfil), 800);
 }
 </script>
 </body>

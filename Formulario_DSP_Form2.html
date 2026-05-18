@@ -172,6 +172,14 @@ input[type="file"] { display: none; }
     <div class="section-sub">Cuéntanos cómo funciona tu empresa día a día.</div>
 
     <div class="form-card">
+      <div class="card-title">Identificación</div>
+      <div class="field">
+        <label>Email con el que enviaste tu primera solicitud <span class="req">*</span></label>
+        <input type="email" id="s1-email" placeholder="El mismo email que usaste en el formulario anterior" oninput="chkS1()">
+      </div>
+    </div>
+
+    <div class="form-card">
       <div class="card-title">Flota y capacidad</div>
       <div class="field-row">
         <div class="field">
@@ -243,8 +251,8 @@ input[type="file"] { display: none; }
           </select>
         </div>
         <div class="field">
-          <label>Metros cuadrados disponibles <span class="opt">(aprox.)</span></label>
-          <input type="number" id="s1-m2" placeholder="Ej: 500">
+          <label>Metros cuadrados totales <span class="opt">(m² totales)</span></label>
+          <input type="number" id="s1-m2" placeholder="Metros disponibles para operación">
         </div>
       </div>
       <div class="field">
@@ -257,7 +265,7 @@ input[type="file"] { display: none; }
       <div class="card-title">Horarios y disponibilidad</div>
       <div class="field-row">
         <div class="field">
-          <label>Horario habitual de reparto <span class="req">*</span></label>
+          <label>Horario de apertura de vuestra operativa <span class="req">*</span></label>
           <input type="text" id="s1-horario" placeholder="Ej: L–V 8:00–20:00" oninput="chkS1()">
         </div>
         <div class="field">
@@ -569,7 +577,8 @@ function selOpt(groupId, el, key, val) {
 
 // Section validation
 function chkS1() {
-  const ok = document.getElementById('s1-numVeh').value &&
+  const ok = document.getElementById('s1-email').value &&
+             document.getElementById('s1-numVeh').value &&
              document.getElementById('s1-tipoVeh').value &&
              document.getElementById('s1-drivers').value &&
              document.getElementById('s1-vol').value &&
@@ -645,6 +654,7 @@ function enviar() {
 
   const payload = {
     form: "2",
+    email:      document.getElementById('s1-email').value,
     // Sección 1
     num_veh:    document.getElementById('s1-numVeh').value,
     tipo_veh:   document.getElementById('s1-tipoVeh').value,

@@ -223,14 +223,11 @@ body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-s
         <div class="opt-radio"></div>
       </button>
       <button class="opt" onclick="selVol('800_1200','og-vol',this)">
-        <div class="opt-body">
-          <div class="opt-title">800 – 1200 paq/día <span style="color:var(--blue);font-size:12px;">✓ zona objetivo</span></div>
-          <div class="opt-desc">Ya estoy ahí o tengo estructura para llegar</div>
-        </div>
+        <div class="opt-body"><div class="opt-title">800 – 1200 paq/día</div></div>
         <div class="opt-radio"></div>
       </button>
       <button class="opt" onclick="selVol('mas1200','og-vol',this)">
-        <div class="opt-body"><div class="opt-title">Más de 1200 paq/día</div><div class="opt-desc">Operación grande o cobertura provincial amplia</div></div>
+        <div class="opt-body"><div class="opt-title">Más de 1200 paq/día</div></div>
         <div class="opt-radio"></div>
       </button>
     </div>
@@ -307,28 +304,64 @@ body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-s
         <input type="email" id="f-email" placeholder="contacto@empresa.com" oninput="chkP3()">
       </div>
       <div class="field">
-        <label>Provincia principal de operación <span class="req">*</span></label>
-        <select id="f-prov" onchange="chkP3()">
-          <option value="">Selecciona tu provincia</option>
-          <option>Álava</option><option>Albacete</option><option>Alicante</option>
-          <option>Almería</option><option>Asturias</option><option>Ávila</option>
-          <option>Badajoz</option><option>Barcelona</option><option>Burgos</option>
-          <option>Cáceres</option><option>Cádiz</option><option>Cantabria</option>
-          <option>Castellón</option><option>Ciudad Real</option><option>Córdoba</option>
-          <option>Cuenca</option><option>Girona</option><option>Granada</option>
-          <option>Guadalajara</option><option>Guipúzcoa</option><option>Huelva</option>
-          <option>Huesca</option><option>Islas Baleares</option><option>Jaén</option>
-          <option>La Coruña</option><option>La Rioja</option><option>Las Palmas</option>
-          <option>León</option><option>Lleida</option><option>Lugo</option>
-          <option>Madrid</option><option>Málaga</option><option>Murcia</option>
-          <option>Navarra</option><option>Ourense</option><option>Palencia</option>
-          <option>Pontevedra</option><option>Salamanca</option><option>Santa Cruz de Tenerife</option>
-          <option>Segovia</option><option>Sevilla</option><option>Soria</option>
-          <option>Tarragona</option><option>Teruel</option><option>Toledo</option>
-          <option>Valencia</option><option>Valladolid</option><option>Vizcaya</option>
-          <option>Zamora</option><option>Zaragoza</option>
-          <option>Ceuta</option><option>Melilla</option>
-        </select>
+        <label>Provincia(s) de operación <span class="req">*</span></label>
+        <p style="font-size:12px;color:var(--muted);margin:0 0 8px;font-weight:400;text-transform:none;letter-spacing:0;">Puedes seleccionar una o varias provincias</p>
+        <div id="prov-checks" style="max-height:200px;overflow-y:auto;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;background:var(--bg);">
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Álava" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Álava</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Albacete" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Albacete</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Alicante" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Alicante</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Almería" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Almería</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Asturias" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Asturias</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Ávila" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Ávila</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Badajoz" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Badajoz</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Barcelona" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Barcelona</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Burgos" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Burgos</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Cáceres" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Cáceres</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Cádiz" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Cádiz</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Cantabria" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Cantabria</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Castellón" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Castellón</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Ciudad Real" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Ciudad Real</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Córdoba" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Córdoba</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Cuenca" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Cuenca</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Girona" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Girona</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Granada" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Granada</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Guadalajara" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Guadalajara</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Guipúzcoa" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Guipúzcoa</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Huelva" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Huelva</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Huesca" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Huesca</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Islas Baleares" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Islas Baleares</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Jaén" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Jaén</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="La Coruña" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> La Coruña</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="La Rioja" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> La Rioja</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Las Palmas" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Las Palmas</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="León" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> León</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Lleida" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Lleida</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Lugo" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Lugo</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Madrid" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Madrid</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Málaga" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Málaga</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Murcia" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Murcia</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Navarra" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Navarra</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Ourense" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Ourense</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Palencia" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Palencia</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Pontevedra" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Pontevedra</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Salamanca" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Salamanca</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Santa Cruz de Tenerife" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Santa Cruz de Tenerife</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Segovia" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Segovia</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Sevilla" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Sevilla</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Soria" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Soria</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Tarragona" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Tarragona</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Teruel" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Teruel</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Toledo" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Toledo</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Valencia" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Valencia</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Valladolid" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Valladolid</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Vizcaya" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Vizcaya</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Zamora" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Zamora</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Zaragoza" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Zaragoza</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Ceuta" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Ceuta</label>
+          <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;text-transform:none;letter-spacing:0;"><input type="checkbox" value="Melilla" onchange="updateProvincias()" style="width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0"> Melilla</label>
+        </div>
+        <input type="hidden" id="f-prov" value="">
+        <div id="prov-selected" style="margin-top:6px;font-size:12px;color:var(--blue);min-height:16px;font-weight:500;"></div>
       </div>
       <div class="field">
         <label>Cobertura específica o comentarios de zona <span class="opt-tag">(opcional)</span></label>
@@ -617,6 +650,14 @@ function onLegalChange() {
   }
 }
 
+function updateProvincias() {
+  const checked = [...document.querySelectorAll('#prov-checks input:checked')].map(cb => cb.value);
+  document.getElementById('f-prov').value = checked.join(', ');
+  const display = document.getElementById('prov-selected');
+  display.textContent = checked.length > 0 ? '✓ Seleccionadas: ' + checked.join(', ') : '';
+  chkP3();
+}
+
 function chkP3() {
   const empresa = document.getElementById('f-empresa').value.trim();
   const nombre  = document.getElementById('f-nombre').value.trim();
@@ -681,7 +722,7 @@ function irGracias(p) {
 }
 
 function enviar() {
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQDSo0XqQ-PP_vJf3_XQSikJu9O1a_oiZ9r6O_u7XCA6OjyNbK8vM8ybu7jXWMiCslbQ/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwlVZoR_aU5mqcyM1ElIfGOsrsBGuC43x57f3BpClfh3Cqy0rD6FVtQIz9n7lpx1QlXsg/exec";
 
   const payload = {
     empresa:    document.getElementById('f-empresa').value,
@@ -689,6 +730,7 @@ function enviar() {
     tel:        document.getElementById('f-tel').value,
     email:      document.getElementById('f-email').value,
     provincia:  document.getElementById('f-prov').value,
+    otras_prov_form1: document.getElementById('f-otras-prov')?.value || '',
     legal:      document.getElementById('f-legal').value,
     cif:        document.getElementById('f-cif').value,
     anos:       document.getElementById('f-anos').value,

@@ -721,6 +721,11 @@ function irGracias(p) {
   window.scrollTo({ top:0, behavior:'smooth' });
 }
 
+function getFuente() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('fuente') || 'Formulario web';
+}
+
 function enviar() {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEm-pJFRdbdZ_mgHQWrLfm9Y1V5ESCPitBqrp56xbU4VXCG-vO4s3sj_L3UKsmeKXVQg/exec";
 

@@ -364,9 +364,16 @@ select {
   cursor: pointer;
   font-size: 13px;
   transition: background .1s;
+  border: 1px solid transparent;
 }
 .province-item:hover { background: var(--off); }
-.province-item input { width: 14px; height: 14px; accent-color: var(--blue); flex-shrink: 0; }
+.province-item.checked {
+  background: var(--blue-light);
+  border-color: var(--blue);
+  color: var(--blue);
+  font-weight: 500;
+}
+.province-item input { width: 15px; height: 15px; accent-color: var(--blue); flex-shrink: 0; }
 .province-selected {
   padding: 8px 14px;
   border-top: 1px solid var(--border);
@@ -898,8 +905,9 @@ function buildProvList(filter='') {
   list.innerHTML = '';
   PROVINCIAS.filter(p => p.toLowerCase().includes(filter.toLowerCase())).forEach(p => {
     const item = document.createElement('label');
-    item.className = 'province-item';
-    const checked = selectedProvs.includes(p) ? 'checked' : '';
+    const isChecked = selectedProvs.includes(p);
+    item.className = 'province-item' + (isChecked ? ' checked' : '');
+    const checked = isChecked ? 'checked' : '';
     item.innerHTML = `<input type="checkbox" value="${p}" ${checked} onchange="toggleProv('${p}', this.checked)"> ${p}`;
     list.appendChild(item);
   });
@@ -908,13 +916,15 @@ function buildProvList(filter='') {
 function toggleProv(prov, checked) {
   if (checked && !selectedProvs.includes(prov)) selectedProvs.push(prov);
   if (!checked) selectedProvs = selectedProvs.filter(p => p !== prov);
+  buildProvList(document.getElementById('provSearch').value);
   updateProvTags();
 }
 
 function updateProvTags() {
   const sel = document.getElementById('provSelected');
-  if (selectedProvs.length === 0) { sel.textContent = 'Ninguna seleccionada'; return; }
-  sel.innerHTML = selectedProvs.map(p => `<span class="prov-tag">${p} <button onclick="removeProv('${p}')">×</button></span>`).join('');
+  if (selectedProvs.length === 0) { sel.innerHTML = '<span style="color:var(--text-light)">Ninguna seleccionada</span>'; return; }
+  const count = `<strong style="color:var(--blue)">${selectedProvs.length} seleccionada${selectedProvs.length>1?'s':''}:</strong> `;
+  sel.innerHTML = count + selectedProvs.map(p => `<span class="prov-tag">${p} <button onclick="removeProv('${p}')">×</button></span>`).join('');
 }
 
 function removeProv(prov) {
@@ -1077,7 +1087,7 @@ function submitForm() {
   };
 
   // Send to Apps Script
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvFFQAshYmGynO7vnEUZqKq2IOTz8u3Z00pzKGmGP1D38d4btOtYI7QaW25peTT3S3Hg/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyv09zjKB_3nieVFxJqphVVOGwUMDxSVXv5XVYS3nyfgfCI3zKoGmVhmgxlj30QrdQ8Ww/exec';
 
   fetch(SCRIPT_URL, {
     method: 'POST',

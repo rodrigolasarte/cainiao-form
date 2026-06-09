@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ECOSCOOTING busca partner en tu zona</title>
+<style>
+  body { margin:0; padding:0; background:#ECEEF2; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .wrapper { background:#ECEEF2; padding:40px 0; }
+  .container { width:600px; margin:0 auto; background:#ffffff; border-radius:4px; overflow:hidden; }
+  .accent-bar { background:#0071FF; height:5px; font-size:0; line-height:0; }
+  .header { background:#003C7E; padding:32px 48px 28px; }
+  .header-brand { font-size:22px; font-weight:800; color:#ffffff; letter-spacing:-0.02em; line-height:1; margin:0; }
+  .header-sub { font-size:11px; font-weight:400; color:rgba(255,255,255,0.55); letter-spacing:0.12em; text-transform:uppercase; margin:4px 0 0; }
+  .header-label { font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-transform:uppercase; margin:0; }
+  .hero { background:#0071FF; padding:28px 48px; }
+  .hero-title { font-size:22px; font-weight:700; color:#ffffff; line-height:1.35; margin:0; }
+  .hero-sub { font-size:14px; color:rgba(255,255,255,0.82); line-height:1.6; margin:10px 0 0; }
+  .body-pad { padding:40px 48px 24px; }
+  .greeting { font-size:16px; font-weight:600; color:#111111; margin:0 0 6px; }
+  .intro { font-size:14px; color:#555555; line-height:1.75; margin:0 0 28px; }
+  .section-label { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#0071FF; margin:0 0 16px; }
+  .benefit-cell { padding:18px 20px; background:#F5F7FA; border-left:3px solid #0071FF; vertical-align:top; width:48%; }
+  .benefit-title { font-size:13px; font-weight:700; color:#111111; margin:0 0 5px; }
+  .benefit-desc { font-size:12px; color:#777777; line-height:1.6; margin:0; }
+  .spacer { height:10px; }
+  .pre-cta-label { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#0071FF; margin:0 0 4px; }
+  .cta-text { font-size:14px; color:#333333; line-height:1.7; margin:0 0 20px; }
+  .cta-wrap { padding:0 48px 40px; }
+  .cta-block { background:#003C7E; padding:24px 32px; text-align:center; }
+  .cta-btn { display:inline-block; background:#0071FF; color:#ffffff; font-size:15px; font-weight:700; padding:15px 44px; text-decoration:none; letter-spacing:0.03em; text-transform:uppercase; }
+  .cta-note { font-size:11px; color:rgba(255,255,255,0.5); margin:12px 0 0; }
+  .firma-wrap { padding:0 48px 40px; }
+  .firma-cell { border-left:3px solid #0071FF; padding-left:16px; vertical-align:top; }
+  .firma-name { font-size:15px; font-weight:700; color:#111111; margin:0 0 2px; }
+  .firma-role { font-size:12px; color:#888888; margin:0 0 2px; }
+  .firma-email { font-size:12px; color:#0071FF; margin:0; }
+  .divider-wrap { padding:0 48px; }
+  .footer { padding:24px 48px 32px; }
+  .footer p { font-size:10px; color:#BBBBBB; line-height:1.8; margin:0; }
+  .footer a { color:#BBBBBB; }
+  .gap4 { width:4%; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<table class="container" cellpadding="0" cellspacing="0" border="0" align="center">
+
+  <tr><td class="accent-bar">&nbsp;</td></tr>
+
+  <!-- HEADER -->
+  <tr><td class="header">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="vertical-align:middle">
+          <p class="header-brand">ECOSCOOTING</p>
+          <p class="header-sub">Red log&iacute;stica &middot; Alibaba Group &middot; Spain</p>
+        </td>
+        <td style="vertical-align:middle;text-align:right">
+          <p class="header-label">Propuesta de colaboraci&oacute;n</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- HERO -->
+  <tr><td class="hero">
+    <p class="hero-title">Estamos incorporando empresas de transporte a nuestra red en <strong>{{contact.PROVINCIA}}</strong>.</p>
+    <p class="hero-sub">Si su empresa reparte paquetes y tiene flota propia, puede que encajemos perfectamente.</p>
+  </td></tr>
+
+  <!-- BODY -->
+  <tr><td class="body-pad">
+    <p class="greeting">Estimado/a {{contact.NOMBRE}},</p>
+    <p class="intro">Desde <strong>Ecoscooting Spain</strong> &mdash; la red log&iacute;stica de &uacute;ltima milla del Grupo Alibaba en Espa&ntilde;a &mdash; estamos buscando empresas de reparto en su zona para incorporarlas como <strong>DSP Partners</strong> en nuestra red de distribuci&oacute;n.</p>
+
+    <p class="section-label">Lo que le ofrecemos</p>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:36px">
+      <tr>
+        <td class="benefit-cell">
+          <p class="benefit-title">Volumen constante</p>
+          <p class="benefit-desc">Paqueter&iacute;a activa desde el primer mes de operaci&oacute;n con Ecoscooting</p>
+        </td>
+        <td class="gap4"></td>
+        <td class="benefit-cell">
+          <p class="benefit-title">Zona asignada</p>
+          <p class="benefit-desc">Cobertura en su &aacute;rea seg&uacute;n la capacidad de su flota, sin solapamientos</p>
+        </td>
+      </tr>
+      <tr><td colspan="3" class="spacer"></td></tr>
+      <tr>
+        <td class="benefit-cell">
+          <p class="benefit-title">Nuevo cliente en cartera</p>
+          <p class="benefit-desc">Diversifique su operaci&oacute;n con una red de alcance global en constante crecimiento</p>
+        </td>
+        <td class="gap4"></td>
+        <td class="benefit-cell">
+          <p class="benefit-title">Tecnolog&iacute;a incluida</p>
+          <p class="benefit-desc">Plataforma log&iacute;stica integrada sin coste adicional para su operaci&oacute;n</p>
+        </td>
+      </tr>
+    </table>
+
+    <p class="pre-cta-label">&Uacute;nase a la red</p>
+    <p class="cta-text">Si cree que puede haber encaje, rellene nuestro formulario breve &mdash; menos de 5 minutos &mdash; y nuestro equipo estudiar&aacute; la posibilidad en su zona sin ning&uacute;n compromiso.</p>
+  </td></tr>
+
+  <!-- CTA -->
+  <tr><td class="cta-wrap">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="cta-block">
+          <a href="https://rodrigolasarte.github.io/cainiao-form/Formulario_Candidatos_DSP.html?fuente=kompass" class="cta-btn">QUIERO UNIRME A LA RED</a>
+          <p class="cta-note">Menos de 5 minutos &middot; Sin compromiso</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- FIRMA -->
+  <tr><td class="firma-wrap">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="firma-cell">
+          <p class="firma-name">Rodrigo Lasarte</p>
+          <p class="firma-role">Onboarding Manager &mdash; Ecoscooting Spain</p>
+          <p class="firma-email">wb-rodrigo.lasarte@cainiao.com</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- DIVIDER -->
+  <tr><td class="divider-wrap"><hr style="border:none;border-top:1px solid #EEEEEE;margin:0" /></td></tr>
+
+  <!-- FOOTER GDPR -->
+  <tr><td class="footer">
+    <p>De conformidad con la normativa vigente, <strong>Ecoscooting Delivery SL</strong> (CIF: B65874893, Ronda de Marcos Ana 6, Unit DC6, 28830 San Fernando de Henares, Madrid) trata su direcci&oacute;n de correo electr&oacute;nico para el env&iacute;o de comunicaciones comerciales destinadas a explorar posibles colaboraciones, bas&aacute;ndose en inter&eacute;s leg&iacute;timo.<br><br>
+    Ecoscooting ha obtenido su direcci&oacute;n a trav&eacute;s de <a href="https://es.kompass.com/">Kompass International SASU</a>, responsable independiente del tratamiento de datos. No compartiremos sus datos con terceros salvo obligaci&oacute;n legal.<br><br>
+    Para dejar de recibir nuestras comunicaciones, o para ejercer sus derechos (acceso, rectificaci&oacute;n, supresi&oacute;n, oposici&oacute;n), cont&aacute;ctenos en <a href="mailto:privacy@ecoscooting.com">privacy@ecoscooting.com</a> o consulte nuestra <a href="https://ecoscooting.com/politica-privacidad/">pol&iacute;tica de privacidad</a>.</p>
+  </td></tr>
+
+</table>
+</div>
+</body>
+</html>
